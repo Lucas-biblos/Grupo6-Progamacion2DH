@@ -1,0 +1,158 @@
+const info = {
+    usuarios: [
+      {
+        id: 1,
+        email: "usuario1@gmail.com",
+        password: "contrasenia1",
+        fecha: "1990-01-09",
+        DNI: 12345678,
+        foto: "usuario1.jpg",
+        createdAt: "2023-11-14 12:34:56"
+      },
+      {
+        id: 2,
+        email: "usuario2@gmail.com",
+        password: "contrasenia2",
+        fecha: "1995-02-15",
+        DNI: 23456789,
+        foto: "usuario2.jpg",
+        createdAt: "2023-11-14 12:34:56"
+      },
+      {
+        id: 3,
+        email: "usuario3@gmail.com",
+        password: "contrasenia3",
+        fecha: "1974-11-10",
+        DNI: 34562390,
+        foto: "usuario3.jpg",
+        createdAt: "2023-11-14 12:34:56"
+      },
+      {
+        id: 4,
+        email: "usuario4@gmail.com",
+        password: "contrasenia4",
+        fecha: "1992-08-10",
+        DNI: 45678901,
+        foto: "usuario4.jpg",
+        createdAt: "2023-11-14 12:34:56"
+      },
+      {
+        id: 5,
+        email: "usuario5@gmail.com",
+        password: "contrasenia5",
+        fecha: "2004-10-07",
+        DNI: 46288321,
+        foto: "usuario5.jpg",
+        createdAt: "2023-11-14 12:34:56"
+      }
+    ],
+    productos: [
+      {
+        id: 1,
+        imagen: 'heladera.jpg',
+        nombre: 'Heladera',
+        descripcion: 'Descripción del Producto 1',
+        createdAt: '2023-11-14 12:34:56',
+      },
+      {
+        id: 2,
+        imagen: 'television.jpg',
+        nombre: 'Televisión',
+        descripcion: 'Descripción del Producto 2',
+        createdAt: '2023-11-14 12:34:56',
+      },
+      {
+        id: 3,
+        imagen: 'horno.jpg',
+        nombre: 'Horno',
+        descripcion: 'Descripción del Producto 3',
+        createdAt: '2023-11-14 12:34:56',
+      },
+      {
+        id: 4,
+        imagen: 'pava.jpg',
+        nombre: 'Pava',
+        descripcion: 'Descripción del Producto 4',
+        createdAt: '2023-11-14 12:34:56',
+      },
+      {
+        id: 5,
+        imagen: 'cafetera.jpg',
+        nombre: 'Cafetera',
+        descripcion: 'Descripción del Producto 5',
+        createdAt: '2023-11-14 12:34:56',
+      },
+      {
+        id: 6,
+        imagen: 'lavadora.jpg',
+        nombre: 'Lavadora',
+        descripcion: 'Descripción del Producto 6',
+        createdAt: '2023-11-14 12:34:56',
+      },
+      {
+        id: 7,
+        imagen: 'microondas.jpg',
+        nombre: 'Microondas',
+        descripcion: 'Descripción del Producto 7',
+        createdAt: '2023-11-14 12:34:56',
+      },
+      {
+        id: 8,
+        imagen: 'licuadora.jpg',
+        nombre: 'Licuadora',
+        descripcion: 'Descripción del Producto 8',
+        createdAt: '2023-11-14 12:34:56',
+      },
+      {
+        id: 9,
+        imagen: 'batidora.jpg',
+        nombre: 'Batidora',
+        descripcion: 'Descripción del Producto 9',
+        createdAt: '2023-11-14 12:34:56',
+      },
+      {
+        id: 10,
+        imagen: 'plancha.jpg',
+        nombre: 'Plancha',
+        descripcion: 'Descripción del Producto 10',
+        createdAt: '2023-11-14 12:34:56',
+      },
+    ],
+    comentarios: [
+      {
+        id: 1,
+        id_post: 1,
+        id_usuario: 1,
+        texto_comentario: 'Gran calidad',
+        createdAt: '2023-11-14 12:34:56',
+      },
+      {
+        id: 2,
+        id_post: 1,
+        id_usuario: 2,
+        texto_comentario: 'Me duro 3 meses y me dejo de andar',
+        createdAt: '2023-11-14 12:34:56',
+      },
+      {
+        id: 3,
+        id_post: 1,
+        id_usuario: 3,
+        texto_comentario: 'Mala calidad',
+        createdAt: '2023-11-14 12:34:56',
+      },
+      {
+        id: 4,
+        id_post: 2,
+        id_usuario: 1,
+        texto_comentario: 'Precio-calidad de 10',
+        createdAt: '2023-11-14 12:34:56',
+      },
+      {
+        id: 5,
+        id_post: 2,
+        id_usuario: 2,
+        texto_comentario: 'Mal precio-calidad',
+        createdAt: '2023-11-14 12:34:56',
+      }
+    ]
+  };
