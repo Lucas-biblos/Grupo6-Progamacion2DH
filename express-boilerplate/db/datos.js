@@ -3,45 +3,50 @@ const info = {
       {
         id: 1,
         email: "usuario1@gmail.com",
+        usuario: user1, 
         password: "contrasenia1",
         fecha: "1990-01-09",
-        DNI: 12345678,
+        dni: 12345678,
         foto: "usuario1.jpg",
         createdAt: "2023-11-14 12:34:56"
       },
       {
         id: 2,
         email: "usuario2@gmail.com",
+        usuario: user2, 
         password: "contrasenia2",
         fecha: "1995-02-15",
-        DNI: 23456789,
+        dni: 23456789,
         foto: "usuario2.jpg",
         createdAt: "2023-11-14 12:34:56"
       },
       {
         id: 3,
         email: "usuario3@gmail.com",
+        usuario: user3, 
         password: "contrasenia3",
         fecha: "1974-11-10",
-        DNI: 34562390,
+        dni: 34562390,
         foto: "usuario3.jpg",
         createdAt: "2023-11-14 12:34:56"
       },
       {
         id: 4,
         email: "usuario4@gmail.com",
+        usuario: user4, 
         password: "contrasenia4",
         fecha: "1992-08-10",
-        DNI: 45678901,
+        dni: 45678901,
         foto: "usuario4.jpg",
         createdAt: "2023-11-14 12:34:56"
       },
       {
         id: 5,
         email: "usuario5@gmail.com",
+        usuario: user5, 
         password: "contrasenia5",
         fecha: "2004-10-07",
-        DNI: 46288321,
+        dni: 46288321,
         foto: "usuario5.jpg",
         createdAt: "2023-11-14 12:34:56"
       }

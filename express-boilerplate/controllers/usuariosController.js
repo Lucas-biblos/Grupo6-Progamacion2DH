@@ -11,7 +11,7 @@ const controller = {
         // Recorre la lista de usuarios para encontrar la coincidencia
         for (let i = 0; i < datos.length; i++) {
             const user = datos[i];
-            if (user.email === usuario && user.password === contraseña) {
+            if (user.usuario === usuario && user.password === contraseña) {
                 usuarioEncontrado = user;
                 break; // Sale del bucle cuando encuentra la coincidencia
             }
@@ -25,14 +25,47 @@ const controller = {
             res.render('error', { error: 'Credenciales incorrectas. Por favor, intenta nuevamente.' });
         }
     },
-    profile: function(req, res){
-        const id = req.params.id
-        res.render('profile')
+    profile: function(req, res) {
+        const userId = req.params.id; // Obtener el id del usuario desde la URL
+        let usuarioLogueado;
+        for (let i = 0; i < datos.length; i++) {
+            if (datos[i].id === userId) {
+                usuarioLogueado = datos[i];
+                break;
+            }
+        }
+
+        res.render('profile', { usuario: usuarioLogueado });
     },
-    profileEdit: function(req, res){
-        const id = req.params.id
-        res.render('profileEdit')
+    profileEdit: function(req, res) {
+        // Obtener el ID del usuario desde la URL
+        const userId = req.params.id;
+    
+        // Obtener los datos del formulario
+        const email = req.query.email;
+        const usuario = req.query.usuario;
+        const contraseña = req.query.contraseña;
+        const fechaNacimiento = req.query.fechaNacimiento;
+        const numeroDocumento = req.query.numeroDocumento;
+        const fotoPerfil = req.query.fotoPerfil;
+    
+        // Actualizar los datos del usuario en la base de datos (datos.js)
+        for (let i = 0; i < datos.length; i++) {
+            if (datos[i].id === userId) {
+                datos[i].email = email;
+                datos[i].usuario = usuario;
+                datos[i].contraseña = contraseña;
+                datos[i].fecha = fechaNacimiento;
+                datos[i].dni = numeroDocumento;
+                datos[i].foto = fotoPerfil;
+                break;
+            }
+        }
+    
+        // Renderizar la vista del perfil con los datos actualizados
+        res.render('profile', { usuario: datos[userId] });
     },
+
     register: function(req, res) {
         const email = req.query.email; // Obtiene el email del formulario
         const usuario = req.query.usuario; // Obtiene el usuario del formulario
@@ -55,14 +88,13 @@ const controller = {
         datos.push(nuevoUsuario);
 
         // Renderiza la vista de perfil con los datos del nuevo usuario
-        res.render('profile', { usuario: nuevoUsuario });
+        res.render('register', { usuario: nuevoUsuario });
     },
 
 };
 
-module.exports = usuariosController;
+
 
     
-;
 
 module.exports = controller;
