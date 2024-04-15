@@ -55,72 +55,82 @@ const info = {
       {
         id: 1,
         imagen: 'heladera.jpg',
-        nombre: 'Heladera',
+        producto: 'Heladera',
         descripcion: 'Descripción del Producto 1',
         createdAt: '2023-11-14 12:34:56',
+        usuario_id: '1'
       },
       {
         id: 2,
         imagen: 'television.jpg',
-        nombre: 'Televisión',
+        producto: 'Televisión',
         descripcion: 'Descripción del Producto 2',
         createdAt: '2023-11-14 12:34:56',
+        usuario_id: '2'
       },
       {
         id: 3,
         imagen: 'horno.jpg',
-        nombre: 'Horno',
+        producto: 'Horno',
         descripcion: 'Descripción del Producto 3',
         createdAt: '2023-11-14 12:34:56',
+        usuario_id: '3'
       },
       {
         id: 4,
         imagen: 'pava.jpg',
-        nombre: 'Pava',
+        producto: 'Pava',
         descripcion: 'Descripción del Producto 4',
         createdAt: '2023-11-14 12:34:56',
+        usuario_id: '4'
       },
       {
         id: 5,
         imagen: 'cafetera.jpg',
-        nombre: 'Cafetera',
+        producto: 'Cafetera',
         descripcion: 'Descripción del Producto 5',
         createdAt: '2023-11-14 12:34:56',
+        usuario_id: '5'
       },
       {
         id: 6,
         imagen: 'lavadora.jpg',
-        nombre: 'Lavadora',
+        producto: 'Lavadora',
         descripcion: 'Descripción del Producto 6',
         createdAt: '2023-11-14 12:34:56',
+        usuario_id: '1'
       },
       {
         id: 7,
         imagen: 'microondas.jpg',
-        nombre: 'Microondas',
+        producto: 'Microondas',
         descripcion: 'Descripción del Producto 7',
         createdAt: '2023-11-14 12:34:56',
+        usuario_id: '2'
       },
       {
         id: 8,
         imagen: 'licuadora.jpg',
-        nombre: 'Licuadora',
+        producto: 'Licuadora',
         descripcion: 'Descripción del Producto 8',
         createdAt: '2023-11-14 12:34:56',
+        usuario_id: '3'
       },
       {
         id: 9,
         imagen: 'batidora.jpg',
-        nombre: 'Batidora',
+        producto: 'Batidora',
         descripcion: 'Descripción del Producto 9',
         createdAt: '2023-11-14 12:34:56',
+        usuario_id: '4'
       },
       {
         id: 10,
         imagen: 'plancha.jpg',
-        nombre: 'Plancha',
-        descripcion: 'Descripción del Producto 10',
+        producto: 'Plancha',
+        descripcion: 'Descripción del Productos 10',
         createdAt: '2023-11-14 12:34:56',
+        usuario_id: '5'
       },
     ],
     comentarios: [
