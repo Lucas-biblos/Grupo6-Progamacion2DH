@@ -128,7 +128,7 @@ const info = {
         id: 10,
         imagen: 'plancha.jpg',
         producto: 'Plancha',
-        descripcion: 'Descripción del Productos 10',
+        descripcion: 'Descripción del Producto 10',
         createdAt: '2023-11-14 12:34:56',
         usuario_id: '5'
       },
