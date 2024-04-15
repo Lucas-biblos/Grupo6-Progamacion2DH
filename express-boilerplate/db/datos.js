@@ -3,7 +3,7 @@ const info = {
       {
         id: 1,
         email: "usuario1@gmail.com",
-        usuario: user1, 
+        usuario: "user1", 
         password: "contrasenia1",
         fecha: "1990-01-09",
         dni: 12345678,
@@ -13,7 +13,7 @@ const info = {
       {
         id: 2,
         email: "usuario2@gmail.com",
-        usuario: user2, 
+        usuario: "user2", 
         password: "contrasenia2",
         fecha: "1995-02-15",
         dni: 23456789,
@@ -23,7 +23,7 @@ const info = {
       {
         id: 3,
         email: "usuario3@gmail.com",
-        usuario: user3, 
+        usuario: "user3", 
         password: "contrasenia3",
         fecha: "1974-11-10",
         dni: 34562390,
@@ -33,7 +33,7 @@ const info = {
       {
         id: 4,
         email: "usuario4@gmail.com",
-        usuario: user4, 
+        usuario: "user4", 
         password: "contrasenia4",
         fecha: "1992-08-10",
         dni: 45678901,
@@ -43,7 +43,7 @@ const info = {
       {
         id: 5,
         email: "usuario5@gmail.com",
-        usuario: user5, 
+        usuario: "user5", 
         password: "contrasenia5",
         fecha: "2004-10-07",
         dni: 46288321,
