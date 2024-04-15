@@ -1,5 +1,5 @@
 const infoGeneral = require('../db/datos');
-const datos = info.usuarios
+const datos = infoGeneral.usuarios
 
 const controller = {
     login: function(req, res) {
