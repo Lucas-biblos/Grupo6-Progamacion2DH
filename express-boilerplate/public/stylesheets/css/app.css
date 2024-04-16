@@ -5,6 +5,10 @@
 height: 150px;
 width: 150px;
 }
+.fotopromo
+{
+  height: 90%;
+  }
 /*====== Variables ======*/
 :root {
   --yellow: #EAC926;
@@ -162,7 +166,7 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+  background-image: url(/images/images/products/promocion-foto.jpeg-home-banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
