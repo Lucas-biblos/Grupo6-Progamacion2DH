@@ -1,7 +1,9 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 
-
+.headerImg{
+height: 100px;
+}
 /*====== Variables ======*/
 :root {
   --yellow: #EAC926;
@@ -80,6 +82,7 @@ hr {
   font-size: 1.5em;
   margin-top: 20px;
   text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .search-form {
