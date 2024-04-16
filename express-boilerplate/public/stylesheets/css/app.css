@@ -75,11 +75,11 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: #56c764;
+  background-color:lightgray;
 }
 
 .etiqheader{
-  font-family: "Jacquard 24", cursive;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 30px;
   text-decoration: underline;
 }
@@ -91,7 +91,6 @@ hr {
 .main-header_credit-link {
   font-size: 27px;
   text-align: center;
-  font-family: "Dancing script"
 }
 
 .search-form {
