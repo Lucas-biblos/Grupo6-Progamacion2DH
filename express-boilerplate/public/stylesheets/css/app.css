@@ -9,6 +9,13 @@ width: 150px;
 {
   height: 90%;
   }
+  .usuarioemaillogin {
+   font-size: 27px;
+    }
+    .inputparalogin {
+      font-size: 25px;
+       }
+  
   .row{display:-ms-flexbox;
     display:flex;
     -ms-flex-wrap:wrap;
@@ -38,6 +45,7 @@ width: 150px;
 /*====== Basics ======*/
 * {
   box-sizing: border-box;
+  display: block;
 }
 
 html,
