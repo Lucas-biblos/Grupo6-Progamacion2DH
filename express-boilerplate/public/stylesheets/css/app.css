@@ -9,6 +9,19 @@ width: 150px;
 {
   height: 90%;
   }
+  .row{display:-ms-flexbox;
+    display:flex;
+    -ms-flex-wrap:wrap;
+    flex-wrap:wrap;
+    margin-right:-15px;
+    margin-left:-15px;
+    align-items: center;
+    justify-content: center;
+  }
+.registro{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 /*====== Variables ======*/
 :root {
   --yellow: #EAC926;
@@ -183,6 +196,7 @@ hr {
   font-size: 2.4em;
   font-weight: 400;
   color: var(--gray);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .product-box {
