@@ -4,8 +4,8 @@ const datos = infoGeneral.usuarios
 const controller = {
     login: function(req, res) {
     
-
-        let usuarioEncontrado = datos[1]
+        const userId = 1
+        let usuarioEncontrado = datos[userId]
 
         
 
@@ -28,7 +28,9 @@ const controller = {
 
     register: function(req, res) {
        
-        const nuevoUsuario = datos[1]
+        const userId = 1
+
+        const nuevoUsuario = datos[userId]
 
         
         datos.push(nuevoUsuario);
@@ -36,7 +38,7 @@ const controller = {
         
         res.render('register', { usuario: nuevoUsuario });
     },
-
+    
 };
 
 

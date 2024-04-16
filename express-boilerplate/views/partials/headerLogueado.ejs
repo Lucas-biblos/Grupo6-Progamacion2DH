@@ -6,13 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link width="" rel="shortcut icon" href="./images/logo-mercado-liebre.jpg" />
 	
-	<title> Mercado Libre Argentina</title>
+	<title class="tituloHeader">Amazon</title>
 			<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Playfair+Display&family=Raleway:wght@100&family=Work+Sans:wght@100;400&display=swap">
 	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="./css/bootstrap-grid.min.css">
+	
 	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="./css/app.css">
+	<link rel="stylesheet" href="/stylesheets/css/app.css">
+    <link rel="stylesheet" href="/stylesheets/css/bootstrap-grid.min.css">
 </head>
 <body>
 	<!-- Header -->
@@ -46,8 +47,8 @@
 	
 			<nav class="main-navbar">
 				<ul class="left-navbar">
-					<li><a href="index.html">Todos los productos</a></li>
-					<li><a href="product-add.html">Cargar productos</a></li>
+					<li><a href="/productos">Todos los productos</a></li>
+					<li><a href="/productos/productoagregado">Cargar productos</a></li>
 				</ul>
 	
 				<ul class="right-navbar">
@@ -58,10 +59,11 @@
 					<li>
 
 						<form action="" method="post">
-							
+							<a href="/">
 							<button class="logout" type="submit">
 								Cerrar sesión <i class="fas fa-sign-in-alt"></i>
 							</button>
+							</a>
 						</form>
 					</li>
 				
