@@ -5,19 +5,22 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Ingrese sus datos</h2>
+				<h2 class="products-title">Ingrese sus datos:</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
+			<div class="login-userPassword">
+				<form action="/usuarios/profile/1" method="GET">
+					<label class="usuarioemaillogin" for="usuario">Usuario (Email):</label>
+					<input class="inputparalogin" type="email" id="usuario" name="usuario" required>
+					<label class="usuarioemaillogin" for="contraseña">Contraseña:</label>
+					<input class="inputparalogin" type="password" id="contraseña" name="contraseña" required>
+					<label class="usuarioemaillogin" for="recordarme">Recordarme:</label>
+					<input class="inputparalogin" type="checkbox" id="recordarme" name="recordarme">
+					<button class="inputparalogin" type="submit">Iniciar Sesión</button>  
+				  </form>
+			</div>
 		
-			<form action="/usuarios/profile/1" method="GET">
-				<label class="usuarioemaillogin" for="usuario">Usuario (Email):</label>
-				<input class="inputparalogin" type="email" id="usuario" name="usuario" required>
-				<label class="usuarioemaillogin" for="contraseña">Contraseña:</label>
-				<input class="inputparalogin" type="password" id="contraseña" name="contraseña" required>
-				<label class="usuarioemaillogin" for="recordarme">Recordarme:</label>
-				<input class="inputparalogin" type="checkbox" id="recordarme" name="recordarme">
-				<button class="inputparalogin" type="submit">Iniciar Sesión</button>  
-			  </form>
+			
 
 	
 <%- include('./partials/footer') %>
