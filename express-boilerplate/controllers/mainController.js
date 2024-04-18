@@ -1,7 +1,13 @@
-const controller = {
-  index: function (req, res) {
-    res.render("index", { title: "Express" });
-  },
-};
+const db = require('../db/datos');
 
-module.exports = controller;
+
+const indexController = {
+    index: function(req, res) {
+        res.render('index', {productos: db.productos,comentarios: db.comentarios});
+    }
+}  
+
+
+
+
+module.exports = indexController;

@@ -54,83 +54,93 @@ const info = {
     productos: [
       {
         id: 1,
-        imagen: 'heladera.jpg',
+        imagen: "./images/products/heladera.jpg",
         producto: 'Heladera',
         descripcion: 'Descripción del Producto 1',
         createdAt: '2023-11-14 12:34:56',
-        usuario_id: '1'
+        usuario_id: '1',
+        texto_comentario: 'Gran calidad'
       },
       {
         id: 2,
-        imagen: 'television.jpg',
+        imagen: './images/products/television.jpg',
         producto: 'Televisión',
         descripcion: 'Descripción del Producto 2',
         createdAt: '2023-11-14 12:34:56',
-        usuario_id: '2'
+        usuario_id: '2',
+        texto_comentario: 'Gran calidad'
       },
       {
         id: 3,
-        imagen: 'horno.jpg',
+        imagen: './images/products/horno.jpg',
         producto: 'Horno',
         descripcion: 'Descripción del Producto 3',
         createdAt: '2023-11-14 12:34:56',
-        usuario_id: '3'
+        usuario_id: '3',
+        texto_comentario: 'Gran calidad'
       },
       {
         id: 4,
-        imagen: 'pava.jpg',
+        imagen: './images/products/pava.jpg',
         producto: 'Pava',
         descripcion: 'Descripción del Producto 4',
         createdAt: '2023-11-14 12:34:56',
-        usuario_id: '4'
+        usuario_id: '4',
+        texto_comentario: 'Precio-calidad de 10'
       },
       {
         id: 5,
-        imagen: 'cafetera.jpg',
+        imagen: './images/products/cafetera.jpg',
         producto: 'Cafetera',
         descripcion: 'Descripción del Producto 5',
         createdAt: '2023-11-14 12:34:56',
-        usuario_id: '5'
+        usuario_id: '5',
+        texto_comentario: 'Precio-calidad de 10'
       },
       {
         id: 6,
-        imagen: 'lavadora.jpg',
+        imagen: './images/products/lavadora.jpg',
         producto: 'Lavadora',
         descripcion: 'Descripción del Producto 6',
         createdAt: '2023-11-14 12:34:56',
-        usuario_id: '1'
+        usuario_id: '1',
+        texto_comentario: 'Precio-calidad de 10'
       },
       {
         id: 7,
-        imagen: 'microondas.jpg',
+        imagen: './images/products/microondas.jpg',
         producto: 'Microondas',
         descripcion: 'Descripción del Producto 7',
         createdAt: '2023-11-14 12:34:56',
-        usuario_id: '2'
+        usuario_id: '2',
+        texto_comentario: 'Me duro 3 meses y me dejo de andar'
       },
       {
         id: 8,
-        imagen: 'licuadora.jpg',
+        imagen: './images/products/licuadora.jpg',
         producto: 'Licuadora',
         descripcion: 'Descripción del Producto 8',
         createdAt: '2023-11-14 12:34:56',
-        usuario_id: '3'
+        usuario_id: '3',
+        texto_comentario: 'Me duro 3 meses y me dejo de andar'
       },
       {
         id: 9,
-        imagen: 'batidora.jpg',
+        imagen: './images/products/batidora.jpg',
         producto: 'Batidora',
         descripcion: 'Descripción del Producto 9',
         createdAt: '2023-11-14 12:34:56',
-        usuario_id: '4'
+        usuario_id: '4',
+        texto_comentario: 'Me duro 3 meses y me dejo de andar'
       },
       {
         id: 10,
-        imagen: 'plancha.jpg',
+        imagen: './images/products/plancha.jpg',
         producto: 'Plancha',
         descripcion: 'Descripción del Producto 10',
         createdAt: '2023-11-14 12:34:56',
-        usuario_id: '5'
+        usuario_id: '5',
+        texto_comentario: 'Me duro 3 meses y me dejo de andar'
       },
     ],
     comentarios: [
