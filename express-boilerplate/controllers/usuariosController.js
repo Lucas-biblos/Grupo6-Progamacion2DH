@@ -39,7 +39,7 @@ const controller = {
         res.render('register', { usuario: nuevoUsuario });
     },
     logout: function(req, res){
-        res.redirect('index')
+        res.render('logout')
     }
 };
 

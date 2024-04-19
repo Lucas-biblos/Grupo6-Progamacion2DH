@@ -59,7 +59,8 @@ const info = {
         descripcion: 'Descripción del Producto 1',
         createdAt: '2023-11-14 12:34:56',
         usuario_id: '1',
-        texto_comentario: 'Gran calidad'
+        texto_comentario: 'Gran calidad',
+        numero_comentarios: "5"
       },
       {
         id: 2,
@@ -68,7 +69,8 @@ const info = {
         descripcion: 'Descripción del Producto 2',
         createdAt: '2023-11-14 12:34:56',
         usuario_id: '2',
-        texto_comentario: 'Gran calidad'
+        texto_comentario: 'Gran calidad',
+        numero_comentarios: "5"
       },
       {
         id: 3,
@@ -77,7 +79,8 @@ const info = {
         descripcion: 'Descripción del Producto 3',
         createdAt: '2023-11-14 12:34:56',
         usuario_id: '3',
-        texto_comentario: 'Gran calidad'
+        texto_comentario: 'Gran calidad',
+        numero_comentarios: "5"
       },
       {
         id: 4,
@@ -86,7 +89,8 @@ const info = {
         descripcion: 'Descripción del Producto 4',
         createdAt: '2023-11-14 12:34:56',
         usuario_id: '4',
-        texto_comentario: 'Precio-calidad de 10'
+        texto_comentario: 'Precio-calidad de 10',
+        numero_comentarios: "5"
       },
       {
         id: 5,
@@ -95,7 +99,8 @@ const info = {
         descripcion: 'Descripción del Producto 5',
         createdAt: '2023-11-14 12:34:56',
         usuario_id: '5',
-        texto_comentario: 'Precio-calidad de 10'
+        texto_comentario: 'Precio-calidad de 10',
+        numero_comentarios: "5"
       },
       {
         id: 6,
@@ -104,7 +109,8 @@ const info = {
         descripcion: 'Descripción del Producto 6',
         createdAt: '2023-11-14 12:34:56',
         usuario_id: '1',
-        texto_comentario: 'Precio-calidad de 10'
+        texto_comentario: 'Precio-calidad de 10',
+        numero_comentarios: "5"
       },
       {
         id: 7,
@@ -113,7 +119,8 @@ const info = {
         descripcion: 'Descripción del Producto 7',
         createdAt: '2023-11-14 12:34:56',
         usuario_id: '2',
-        texto_comentario: 'Me duro 3 meses y me dejo de andar'
+        texto_comentario: 'Me duro 3 meses y me dejo de andar',
+        numero_comentarios: "5"
       },
       {
         id: 8,
@@ -122,7 +129,8 @@ const info = {
         descripcion: 'Descripción del Producto 8',
         createdAt: '2023-11-14 12:34:56',
         usuario_id: '3',
-        texto_comentario: 'Me duro 3 meses y me dejo de andar'
+        texto_comentario: 'Me duro 3 meses y me dejo de andar',
+        numero_comentarios: "5"
       },
       {
         id: 9,
@@ -131,7 +139,8 @@ const info = {
         descripcion: 'Descripción del Producto 9',
         createdAt: '2023-11-14 12:34:56',
         usuario_id: '4',
-        texto_comentario: 'Me duro 3 meses y me dejo de andar'
+        texto_comentario: 'Me duro 3 meses y me dejo de andar',
+        numero_comentarios: "5"
       },
       {
         id: 10,
@@ -140,7 +149,8 @@ const info = {
         descripcion: 'Descripción del Producto 10',
         createdAt: '2023-11-14 12:34:56',
         usuario_id: '5',
-        texto_comentario: 'Me duro 3 meses y me dejo de andar'
+        texto_comentario: 'Me duro 3 meses y me dejo de andar',
+        numero_comentarios: "5"
       },
     ],
     comentarios: [
