@@ -54,7 +54,7 @@ const info = {
     productos: [
       {
         id: 1,
-        imagen: "./images/products/heladera.jpg",
+        imagen: "/images/products/heladera.jpg",
         producto: 'Heladera',
         descripcion: 'Descripción del Producto 1',
         createdAt: '2023-11-14 12:34:56',
@@ -64,7 +64,7 @@ const info = {
       },
       {
         id: 2,
-        imagen: './images/products/television.jpg',
+        imagen: '/images/products/television.jpg',
         producto: 'Televisión',
         descripcion: 'Descripción del Producto 2',
         createdAt: '2023-11-14 12:34:56',
@@ -74,7 +74,7 @@ const info = {
       },
       {
         id: 3,
-        imagen: './images/products/horno.jpg',
+        imagen: '/images/products/horno.jpg',
         producto: 'Horno',
         descripcion: 'Descripción del Producto 3',
         createdAt: '2023-11-14 12:34:56',
@@ -84,7 +84,7 @@ const info = {
       },
       {
         id: 4,
-        imagen: './images/products/pava.jpg',
+        imagen: '/images/products/pava.jpg',
         producto: 'Pava',
         descripcion: 'Descripción del Producto 4',
         createdAt: '2023-11-14 12:34:56',
@@ -94,7 +94,7 @@ const info = {
       },
       {
         id: 5,
-        imagen: './images/products/cafetera.jpg',
+        imagen: '/images/products/cafetera.jpg',
         producto: 'Cafetera',
         descripcion: 'Descripción del Producto 5',
         createdAt: '2023-11-14 12:34:56',
@@ -104,7 +104,7 @@ const info = {
       },
       {
         id: 6,
-        imagen: './images/products/lavadora.jpg',
+        imagen: '/images/products/lavadora.jpg',
         producto: 'Lavadora',
         descripcion: 'Descripción del Producto 6',
         createdAt: '2023-11-14 12:34:56',
@@ -114,7 +114,7 @@ const info = {
       },
       {
         id: 7,
-        imagen: './images/products/microondas.jpg',
+        imagen: '/images/products/microondas.jpg',
         producto: 'Microondas',
         descripcion: 'Descripción del Producto 7',
         createdAt: '2023-11-14 12:34:56',
@@ -124,7 +124,7 @@ const info = {
       },
       {
         id: 8,
-        imagen: './images/products/licuadora.jpg',
+        imagen: '/images/products/licuadora.jpg',
         producto: 'Licuadora',
         descripcion: 'Descripción del Producto 8',
         createdAt: '2023-11-14 12:34:56',
@@ -134,7 +134,7 @@ const info = {
       },
       {
         id: 9,
-        imagen: './images/products/batidora.jpg',
+        imagen: '/images/products/batidora.jpg',
         producto: 'Batidora',
         descripcion: 'Descripción del Producto 9',
         createdAt: '2023-11-14 12:34:56',
@@ -144,7 +144,7 @@ const info = {
       },
       {
         id: 10,
-        imagen: './images/products/plancha.jpg',
+        imagen: '/images/products/plancha.jpg',
         producto: 'Plancha',
         descripcion: 'Descripción del Producto 10',
         createdAt: '2023-11-14 12:34:56',

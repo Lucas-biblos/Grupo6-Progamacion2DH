@@ -12,7 +12,7 @@ router.get('/profile/:id', usuariosController.profile)
 
 router.get('/profile/edit/:id', usuariosController.profileEdit)
 
-router.get('/logout', usuariosController.logout)
+
 
 
 
