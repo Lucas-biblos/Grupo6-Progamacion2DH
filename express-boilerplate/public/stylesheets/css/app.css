@@ -188,6 +188,7 @@ hr {
 .main-navbar {
   margin-top: 20px;
   display: none;
+
 }
 
 .left-navbar,
@@ -237,7 +238,9 @@ hr {
   color: var(--gray);
   font-family:'Courier New', Courier, monospace;
   text-decoration: none;
+  margin: 5px;
 }
+
 .index-title {
   font-size: 2.0em;
   font-weight: 400;
@@ -245,7 +248,17 @@ hr {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-decoration: none;
   margin-bottom: 10px;
+  
 }
+.index-titleMain {
+  font-size: 2.0em;
+  font-weight: 200;
+  color: gray;
+  font-family: 'Courier New', Courier, monospace; ;
+  text-decoration: dotted;
+  margin-bottom: 10px;
+}
+
 
 .product-box {
   background-color: #ffffff;
