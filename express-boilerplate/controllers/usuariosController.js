@@ -7,9 +7,6 @@ const controller = {
         const userId = 1
         let usuarioEncontrado = datos[userId]
 
-        
-
-        
             res.render('login', { usuario: usuarioEncontrado });
         
     },
