@@ -2,14 +2,6 @@ const infoGeneral = require('../db/datos');
 const datos = infoGeneral.usuarios
 
 const controller = {
-    login: function(req, res) {
-    
-        const userId = 1
-        let usuarioEncontrado = datos[userId]
-
-            res.render('login', { usuario: usuarioEncontrado });
-        
-    },
     profile: function(req, res) {
         const userId = req.params.id
         let usuarioLogueado = datos[userId]
@@ -21,22 +13,6 @@ const controller = {
         let usuario = datos[userId]
        
         res.render('profile-edit', usuario);
-    },
-
-    register: function(req, res) {
-       
-        const userId = 1
-
-        const nuevoUsuario = datos[userId]
-
-        
-        datos.push(nuevoUsuario);
-
-        
-        res.render('register', { usuario: nuevoUsuario });
-    },
-    logout: function(req, res){
-        res.render('logout')
     }
 };
 
