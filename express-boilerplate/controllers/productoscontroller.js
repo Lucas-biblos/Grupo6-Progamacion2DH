@@ -1,6 +1,8 @@
 const infoGeneral = require('../db/datos');
 const product = infoGeneral.product;
 let comment = infoGeneral.comment;
+const { validationResult } = require("express-validator");
+
 
 const productoController = {
     index: function(req, res) {
