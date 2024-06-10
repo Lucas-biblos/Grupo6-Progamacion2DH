@@ -1,6 +1,8 @@
 const infoGeneral = require('../db/datos');
 const product = infoGeneral.product;
 let comment = infoGeneral.comment;
+const { validationResult } = require("express-validator");
+
 
 const productoController = {
     index: function(req, res) {
@@ -11,6 +13,34 @@ const productoController = {
         res.render('product-add', { title: "Agrega un Producto", usuario: infoGeneral.usuarios });
     },
     
+    create: function(req, res) {
+        let id = req.params.id;
+        infoGeneral.usuarios.findByPk(id)
+            .then(function(results){
+                return res.render('product-add', {title:"Add Product", usuarios: results});
+            })
+            .catch(function(error){
+                console.log(error);
+            });
+    },
+
+    store: function(req, res) {
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+            infoGeneral.productos.create(req.body)
+            .then((result) => {
+                return res.redirect("/product/id/" + result.id)
+            }).catch((err) => {
+              return console.log(err);
+            });        
+        } 
+        else {
+
+            return res.render('product-add', {title: "register", errors: errors.mapped(), old: req.body });        
+        }
+    },
+
     edit: (req, res) => {
         if (req.session.user == undefined) {
             res.redirect('/users/login');
