@@ -12,7 +12,7 @@ const createProductValidation = [
         .withMessage("Debes completar este campo con un nombre")
         .bail()
         .isLength({ max: 20 }),
-    body("descrpicion")
+    body("descripcion")
         .notEmpty()
         .withMessage("Debes poner una descripcion")
         .bail()

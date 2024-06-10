@@ -25,7 +25,7 @@ const registerValidations = [
        .notEmpty()
        .withMessage("Debes completar tu contraseña")
        .bail()
-       .isLengt({min: 5}),
+       .isLength({min: 5}),
    body("retypePassword")
        .notEmpty()
        .withMessage("Debes completar tu contraeña otra vez")
