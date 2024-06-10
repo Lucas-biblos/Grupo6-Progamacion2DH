@@ -20,7 +20,6 @@ let registerController = {
            })
        }
        const user = {
-           name: req.body.name,
            email: req.body.email,
            usuario : req.body.usuario,
            fecha: req.body.fecha,
