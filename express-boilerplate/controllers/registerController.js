@@ -4,10 +4,6 @@ const { validationResult } = require("express-validator");
 const op = db.Sequelize.Op;
 
 
-
-
-
-
 let registerController = {
    index: function (req, res) {
        //Mostrar el formulario de registro
