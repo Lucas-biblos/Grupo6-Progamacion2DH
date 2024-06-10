@@ -69,30 +69,49 @@
         <div class="col-12">
             <h2 class="products-title">Editar mi perfil</h2>
         </div>
-        <form action="/usuarios/profile/1" method="GET">
+        <form action="/usuarios/profile/<%= usuario.id %>" method="Post">
             <div class="col-12">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" value="<%= usuario.email %>" required>
+				<% if (locals.errors && errors.email) { %>
+					<p >
+						<%= errors.email.msg %>                                
+					</p>                            
+				<% } %>
             </div>
             <div class="col-12">
                 <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" name="usuario" required>
+                <input type="text" id="usuario" name="usuario" value="<%= usuario.usuario %>" required>
             </div>
             <div class="col-12">
                 <label for="contraseña">Contraseña:</label>
                 <input type="password" id="contraseña" name="contraseña" required>
+				<% if (locals.errors && errors.password) { %>
+					<p >
+						<%= errors.password.msg %>                                
+					</p>                            
+				<% } %>
             </div>
+			<div class="col-12">
+				<label for="retypePassword" class="registro">Contraseña:</label>
+				<input type="password" id="retypePassword" name="retypePassword" required>
+				<% if (locals.errors && errors.retypePassword) { %>
+					<p >
+						<%= errors.retypePassword.msg %>                                
+					</p>                            
+				<% } %>
+			</div>
             <div class="col-12">
                 <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" value="<%= usuario.fecha %>" required>
             </div>
             <div class="col-12">
                 <label for="numeroDocumento">Número de Documento:</label>
-                <input type="number" id="numeroDocumento" name="numeroDocumento" required>
+                <input type="number" id="numeroDocumento" name="numeroDocumento" value="<%= usuario.DNI %>" required>
             </div>
             <div class="col-12">
                 <label for="fotoPerfil">Foto de Perfil:</label>
-                <input type="text" id="fotoPerfil" name="fotoPerfil" required>
+                <input type="text" id="fotoPerfil" name="fotoPerfil" value="<%= usuario.foto %>" required>
             </div>
             <button type="submit">Guardar Cambios</button>
         </form>
