@@ -30,7 +30,7 @@ module.exports = function (sequelize, dataTypes){
     }
 
     let config = {
-        tableName:'Products',
+        tableName:'productos',
         timestamps: true, 
         underscore: true
     }
@@ -41,7 +41,8 @@ module.exports = function (sequelize, dataTypes){
         Product.belongsTo(models.User, {
             as: "user", 
             foreignKey: "usuario_id",
-        })
+        });
+
     };
 
     return Product;

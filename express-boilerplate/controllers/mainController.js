@@ -1,11 +1,12 @@
 const dbDos = require('../db/datos');
 const db = require("../database/models")
+const product = db.Product
 
 
 
 const indexController = {
     index: function(req, res) {
-        db.Product.findAll({
+        product.findAll({
             include: [
                 {
                     association: 'user'
@@ -15,8 +16,8 @@ const indexController = {
                 }
             ],
             order: [['createdAt', 'DESC']]
-        })
-        .then(function(productos) {
+        }).then(function(productos) {
+            console.log(productos)
             res.render("index", { productos: productos });
         })
         .catch(function(error) {

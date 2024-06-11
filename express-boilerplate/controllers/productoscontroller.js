@@ -57,7 +57,6 @@ const productoController = {
                         updatedAt: new Date(),
                         userId: result.dataValues.userId
                     };
-                    console.log(result.img);
                     return res.render('product-edit', {
                         listaAutos: product,
                     });

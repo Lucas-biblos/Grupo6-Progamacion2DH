@@ -14,6 +14,10 @@ module.exports = function (sequelize, dataTypes) {
         updated_at: {
             type: dataTypes.DATE,
             allowNull: true,
+        },    
+        deleted_at: {
+            type: dataTypes.DATE,
+            allowNull: true,
         },
         name: {
             type: dataTypes.STRING
@@ -52,11 +56,11 @@ module.exports = function (sequelize, dataTypes) {
     User.associate = function (models) {
         User.hasMany(models.Product, {
             as: 'products',
-            foreignKey: 'user_id'
+            foreignKey: 'usuario_id'
         });
         User.hasMany(models.Comment, {
             as: 'comments',
-            foreignKey: 'user_id'
+            foreignKey: 'usuario_id'
         });
     };
 
