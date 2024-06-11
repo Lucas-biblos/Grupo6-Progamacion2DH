@@ -53,7 +53,7 @@
 					<li><a class="etiqheader index-titleMain" href="/">Todos los productos</a></li>
 					<!-- solo logueado <li><a href="">Cargar productos</a></li> -->
 				</ul>
-					<form action="/" method="POST" class="d-flex justify-content-center">
+					<form action="/" method="get" class="d-flex justify-content-center">
 						<button type="submit" >Home </button>
 					</form>
 				</ul>
@@ -70,7 +70,7 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<div class="login-userPassword">
-				<form action="/login" method="POST">
+				<form action="/login" method="POST" novalidate>
 					<label class="usuarioemaillogin" for="usuario">Email</label>
 					<input class="inputparalogin" type="email" id="usuario" name="usuario" required>
 					<% if (locals.errors && errors.email) { %>

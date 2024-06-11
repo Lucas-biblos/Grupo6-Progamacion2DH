@@ -6,9 +6,20 @@ const op = db.Sequelize.Op;
 const controller = {
     profile: function(req, res) {
         const userId = req.params.id; // Se agregó la definición de userId
-        db.User.findByPk(userId)
+        db.User.findByPk(userId, {
+            include: [{
+                association: products,
+                order: [['createdAt', 'DESC']]
+            },
+        {
+            association: comments,
+            order: [['createdAt', 'DESC']]
+        }]
+            })
             .then(function(user) {
-                res.render('profile', { usuario: user });
+                cantidadProductos = user.products.length
+                cantidadComentarios = user.comments.lenght
+                res.render('profile', { usuario: user, cantidadProductos: cantidadProductos , cantidadComentarios: cantidadComentarios, productos: user.products });
             })
             .catch(function(e) {
                 console.log(e);
