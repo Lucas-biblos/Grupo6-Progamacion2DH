@@ -87,17 +87,21 @@
 			<div class="container products-wrapper">
 				<div class="row">
 					
-					<%for (let i = 0; i < 8 && i < productos.length; i++) { %>
-					<!-- Show the "ultimos" products -->
+					
+					<%for (let i = 0; i < 8 && i < productos.length; i++) { %> 
+					<!-- Show the "ultimos" products/ Aca cambiar el for para que matchee las busquedas y aparezcan de mas nuevo a mas viejo y que en caso de no enocntar resultados, mostrar el mensaje “No hay resultados para su criterio de búsqueda”.
+-->
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
-							<a href="/productos">
+							<a href="/productos/<%= productos[i].id %>">
 								<figure class="product-box_image">
 									<img src="<%= productos[i].imagen %>" >
 								</figure>
 								<article class="product-box_data">
 									<h2><%= productos[i].producto %></h2>
 									<p><%= productos[i].descripcion %></p>
+								<!-- aca se agrego el usuario y redirige al perfil, revisar luego si esra bien codeado-->
+									<p>Agregado por: <a href="/usuarios/profile/<%= productos[i].usuario_id %>"><%= productos[i].usuario_id.usuario %></a></p>
 									<p>Comentarios: <%= productos[i].texto_comentario %></p>
 								</article>
 							</a>

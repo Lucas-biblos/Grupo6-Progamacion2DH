@@ -8,12 +8,12 @@ const controller = {
         const userId = req.params.id; // Se agregó la definición de userId
         db.User.findByPk(userId, {
             include: [{
-                association: products,
-                order: [['createdAt', 'DESC']]
+                association: 'products',
+                order: [['created_at', 'DESC']]
             },
         {
-            association: comments,
-            order: [['createdAt', 'DESC']]
+            association: 'comments',
+            order: [['created_at', 'DESC']]
         }]
             })
             .then(function(user) {
