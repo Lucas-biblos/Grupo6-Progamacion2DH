@@ -30,8 +30,10 @@ let loginController = {
             console.log(e)
         })
     },
-    logout: function (req, res) {
-
+    logout: function(req,res){
+        req.session.destroy();
+        res.clearCookie('userId');
+        return res.redirect('/')
     }
     
 }
