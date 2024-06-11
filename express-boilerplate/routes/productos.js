@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { results } = require("../controllers/mainController");
-const productoController = require("../controllers/productosController");
+const productoController = require("../controllers/productoscontroller");
 const createProductValidation = require('../middlewares/createProduct-validator')
 
 router.get('/', productoController.index)

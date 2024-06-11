@@ -102,14 +102,14 @@
 								
 								<div class="data">
 									<p class="user">
-										<strong><%= comentario.id_usuario %></strong>
+										<a href="./profile.ejs"><strong><%= comentario.id_usuario %></strong></a>
 										<%= comentario.texto_comentario %>
 									</p>
 								</div>
 							</article>
 						<% } %>
 					</section>
-					<form class="form" action="/usuarios/profile/1" method="GET">
+					<form class="form" action="/usuarios/profile/1" method="get">
 						<input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
