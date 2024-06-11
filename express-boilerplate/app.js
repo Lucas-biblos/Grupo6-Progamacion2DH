@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const session = require ("express-session")
 const indexRouter = require("./routes/index");
+const db = require("./database/models");
 //Include your routes here
 
 
