@@ -32,11 +32,6 @@ let loginController = {
     },
     logout: function (req, res) {
 
-        req.session.destroy();
-    
-        res.clearCookie("userId");
-    
-        res.redirect("/");
     }
     
 }
