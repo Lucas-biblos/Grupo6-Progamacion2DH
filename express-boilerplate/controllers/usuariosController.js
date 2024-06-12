@@ -7,35 +7,49 @@ const controller = {
     profile: function(req, res) {
         const userId = req.params.id; // Se agregó la definición de userId
         db.User.findByPk(userId, {
-            include: [{
-                association: 'products',
-                order: [['created_at', 'DESC']]
-            },
-        {
-            association: 'comments',
-            order: [['created_at', 'DESC']]
-        }]
-            })
-            .then(function(user) {
-                cantidadProductos = user.products.length
-                cantidadComentarios = user.comments.lenght
-                res.render('profile', { usuario: user, cantidadProductos: cantidadProductos , cantidadComentarios: cantidadComentarios, productos: user.products });
-            })
-            .catch(function(e) {
-                console.log(e);
-                res.status(500).send('Error al cargar el perfil');
+            include: [
+                {
+                    association: 'products',
+                    order: [['created_at', 'DESC']]
+                },
+                {
+                    association: 'comments',
+                    order: [['created_at', 'DESC']]
+                }
+            ]
+        })
+        .then(function(user) {
+            const cantidadProductos = user.products.length;
+            const cantidadComentarios = user.comments.length; // Corregido el typo de 'lenght' a 'length'
+            res.render('profile', {
+                usuario: user,
+                cantidadProductos: cantidadProductos,
+                cantidadComentarios: cantidadComentarios,
+                productos: user.products
             });
+        })
+        .catch(function(e) {
+            console.log(e);
+            res.status(500).send('Error al cargar el perfil');
+        });
+    },
+    register: function(req, res, next) {
+        if (req.session.user != undefined) {
+            return res.redirect("/users/profile/" + req.session.user.id); 
+        } else {
+            return res.render('register', { title: "Register" });
+        }
     },
     profileEdit: function(req, res) {
         const userId = req.params.id;
         db.User.findByPk(userId)
-            .then(function(user) {
-                res.render('profile-edit', { usuario: user });
-            })
-            .catch(function(e) {
-                console.log(e);
-                res.status(500).send('Error al cargar la edición del perfil');
-            });
+        .then(function(user) {
+            res.render('profile-edit', { usuario: user });
+        })
+        .catch(function(e) {
+            console.log(e);
+            res.status(500).send('Error al cargar la edición del perfil');
+        });
     },
     profileStore: function(req, res) {
         const userId = req.params.id;
@@ -73,3 +87,4 @@ const controller = {
 };
 
 module.exports = controller;
+
