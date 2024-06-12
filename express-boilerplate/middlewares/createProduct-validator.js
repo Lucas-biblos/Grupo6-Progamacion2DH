@@ -2,7 +2,8 @@ const { body } = require("express-validator")
 const db = require("../database/models")
 const bcryptjs = require('bcryptjs');
 
-const createProductValidation = [
+const createProductValidation = {
+    creaciondeproducto:[
     body("imagen")
         .notEmpty()
         .withMessage("Debes cargar una imagen")
@@ -16,6 +17,15 @@ const createProductValidation = [
         .notEmpty()
         .withMessage("Debes poner una descripcion")
         .bail()
+],
+comentario: [
+    body('comentario')
+        .notEmpty()
+        .withMessage('El comentario no puede no tener nada.')
+        .bail()
+        .isLength({ min: 8 })
+        .withMessage('El comentario debe tener al menos 8 letras.')
 ]
+};
 
 module.exports = createProductValidation
