@@ -1,19 +1,42 @@
-const infoGeneral = require('../db/datos');
-const op = infoGeneral.sequelize.op;
+const db = require('../database/models')
+const op = db.sequelize.op;
 const { validationResult } = require("express-validator");
 
 const productoController = {
     index: function(req, res) {
-        res.render('product', { title: "Detalle de producto", productos: infoGeneral.productos, comentarios: infoGeneral.comentarios });
+        let id = req.params.id;
+        let asociaciones = {
+            include: [
+              {association: "user"},
+              {association: "comments", 
+                include: [{association: 'user'} 
+                ]}
+            ]
+        }
+
+        let condition = false;
+
+        db.Product.findByPk(id, asociaciones)
+        .then(function(results){
+
+            if (req.session.user != undefined && req.session.user.id == results.usuario.id) {
+                condition = true;
+            }
+            //revisar la linea 26, creo que estan mal los nombres
+            return res.render('product', {title:"Product", productos: results, comentarios: results.comments, condition: condition});
+        })
+        .catch(function(error){
+            console.log(error);
+        });
     },
-   
+
     agregarproductos: function(req, res) {
-        res.render('product-add', { title: "Agrega un Producto", usuario: infoGeneral.usuarios });
+        res.render('product-add', { title: "Agrega un Producto", usuario: db.usuarios });
     },
     
     create: function(req, res) {
         let id = req.params.id;
-        infoGeneral.usuarios.findByPk(id)
+        db.usuarios.findByPk(id)
             .then(function(results) {
                 return res.render('product-add', { title: "Add Product", usuarios: results });
             })
@@ -26,7 +49,7 @@ const productoController = {
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            infoGeneral.productos.create(req.body)
+            db.productos.create(req.body)
                 .then((result) => {
                     return res.redirect("/product/id/" + result.id);
                 })

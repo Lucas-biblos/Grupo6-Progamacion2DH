@@ -9,9 +9,9 @@ router.get('/', productoController.index)
 router.get('/productoagregado', productoController.agregarproductos)
 router.post('/', createProductValidation, productoController.agregarproductos)
 router.get('/create', productoController.create);
-router.post('/delete/:id', productoController.delete);
-router.get("/edit/:id", productoController.edit);
-router.post("/update/:id", productoController.updateProd);
-router.post('/delete/:id', productoController.delete)
+router.post('/delete/:id', productoController.destroy);
+router.get("/edit/:id", productoController.update);
+router.post("/update/:id", productoController.formUpdate);
+//revisar las rutas y los metodos .post y .get usados
 
 module.exports = router
