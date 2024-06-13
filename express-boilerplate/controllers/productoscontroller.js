@@ -1,5 +1,4 @@
 const infoGeneral = require('../db/datos');
-const op = infoGeneral.sequelize.op;
 const { validationResult } = require("express-validator");
 
 const productoController = {

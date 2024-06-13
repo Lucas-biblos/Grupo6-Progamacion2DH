@@ -15,7 +15,7 @@ const indexController = {
                     association: 'comments'
                 }
             ],
-            order: [['createdAt', 'DESC']]
+            order: [['created_at', 'DESC']]
         }).then(function(productos) {
             console.log(productos)
             res.render("index", { productos: productos });
