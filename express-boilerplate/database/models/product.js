@@ -24,6 +24,10 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.DATE,
             allowNull: true,
         },
+        deleted_at:{
+            type: dataTypes.DATE,
+            allowNull: true,
+        },
         usuario_id:{
             type: dataTypes.INTEGER
         }
@@ -31,8 +35,11 @@ module.exports = function (sequelize, dataTypes){
 
     let config = {
         tableName:'productos',
-        timestamps: true, 
-        underscore: true
+        
+        timestamps: false, 
+     
+        underscore: false
+           
     }
 
     const Product = sequelize.define(alias,cols,config);
