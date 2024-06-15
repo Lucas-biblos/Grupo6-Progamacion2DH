@@ -9,23 +9,31 @@ const controller = {
         db.User.findByPk(userId, {
             include: [
                 {
+                    model: db.Product ,
+                    required: true ,
                     association: 'products',
                     order: [['created_at', 'DESC']]
                 },
                 {
+                    model: db.Comment ,
+                    required: true ,
                     association: 'comments',
                     order: [['created_at', 'DESC']]
                 }
             ]
         })
         .then(function(user) {
-            const cantidadProductos = user.products.length;
-            const cantidadComentarios = user.comments.length; // Corregido el typo de 'lenght' a 'length'
+            console.log(user.dataValues)
+            const cantidadProductos = user.dataValues.products.length;
+            const cantidadComentarios = user.dataValues.comments.length; // Corregido el typo de 'lenght' a 'length'
+            console.log("hola")
+            const currentProducts = user.dataValues.products.map(function(product) {return product.dataValues} )
+            console.log(currentProducts)
             res.render('profile', {
-                usuario: user,
+                usuario: user.dataValues,
                 cantidadProductos: cantidadProductos,
                 cantidadComentarios: cantidadComentarios,
-                productos: user.products
+                productos: currentProducts
             });
         })
         .catch(function(e) {

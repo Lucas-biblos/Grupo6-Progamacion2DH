@@ -71,8 +71,8 @@
 			<!-- Show the "ultimos" products -->
 			<div class="login-userPassword">
 				<form action="/login" method="POST" novalidate>
-					<label class="usuarioemaillogin" for="usuario">Email</label>
-					<input class="inputparalogin" type="email" id="usuario" name="usuario" required>
+					<label class="usuarioemaillogin" for="email">Email</label>
+					<input class="inputparalogin" type="email" id="email" name="email" required>
 					<% if (locals.errors && errors.email) { %>
 						<div class="">
 							<%= errors.email.msg %>                                

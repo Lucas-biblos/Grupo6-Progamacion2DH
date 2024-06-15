@@ -69,7 +69,7 @@
         <div class="col-12">
             <h2 class="products-title">Editar mi perfil</h2>
         </div>
-        <form action="/usuarios/profile/<%= usuario.id %>" method="post" novalidate>
+        <form action="/usuarios/profile/<%= usuario.id %>" method="POST" novalidate>
             <div class="col-12">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" value="<%= usuario.email %>" required>

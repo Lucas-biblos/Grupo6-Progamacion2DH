@@ -3,7 +3,7 @@ const db= require("../database/models")
 const bcryptjs = require('bcryptjs');
 
 const registerValidations = [
-    body("name")
+    body("usuario")
     .notEmpty()
     .withMessage("Debes completar tu nombre"),
     body("email")
@@ -17,8 +17,8 @@ const registerValidations = [
                 where: {email:value}
             })
             .then(function(userToLogin){
-                if(!userToLogin){
-                    throw new Error("No existe un usuario con ese email")
+                if(userToLogin){
+                    throw new Error("Ya existe un usuario con ese email")
                 }
             })
         }

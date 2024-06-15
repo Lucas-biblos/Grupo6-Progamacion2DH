@@ -60,13 +60,9 @@
 						<form action="/login/logout" method="POST" class="d-flex justify-content-center">
 							<button type="submit" class="btn btn-danger">Logout</button>
 						</form>
-						<form action="/productos/productoagregado" method="POST" class="d-flex justify-content-center">
-							<button type="submit" class="btn btn-danger">Agregar producto</button>
-						</form>
-						<form action="/usuarios//profile/edit/<%= locals.user.id %>" method="get" class="d-flex justify-content-center">
-							<button type="submit" class="btn btn-danger">Editar mi usuario</button>
-						</form>
-					
+						<a href="/usuarios/profile/edit/<%= usuario.id %>" class="btn btn-primary">Editar perfil</a>
+						<a href="/productos/productoagregado" class="btn btn-primary">Agregar producto</a>
+	
 				</ul>
 			</nav>
 		</div>
@@ -89,7 +85,7 @@
 					<ul class="">
 						<li><%= cantidadProductos %> productos publicados</li>
 						<li>3k seguidores</li>
-						<li><%= cantidad Comentarios %> comentarios</li>
+						<li><%= cantidadComentarios %> comentarios</li>
 					</ul>
 				</div>
 			</div>
@@ -105,7 +101,7 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
-			<% for(let i = productos.lenght; i >= 0 ; i--) { %>
+			<% for(let i = 0; i < cantidadProductos; i++) { %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
 						<a href="/productos/<%= productos[i].id %>">
