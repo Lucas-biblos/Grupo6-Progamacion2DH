@@ -72,14 +72,12 @@
                             <figure class="product-box_image">
                                 <img src="/images/products/<%= productos[i].imagen %>" alt="<%= productos[i].producto %>">
                             </figure>
-                            <article class="product-box_data">
-                                <h2><%= productos[i].producto %></h2>
-                                <a href="/usuarios/profile/<%= productos[i].user.id %>">
-                                    <p>Publicado por: <%= productos[i].user.usuario %></p>
-                                </a>
-                                <p>Cantidad de comentarios: <%= productos[i].comments.length %></p>
-                            </article>
                         </a>
+                        <article class="product-box_data">
+                            <h2><%= productos[i].producto %></h2>
+                            <p> <a href="/usuarios/profile/<%= productos[i].user.id %>"></a>Publicado por: <%= productos[i].user.usuario %> <a href="/usuarios/profile/<%= productos[i].user.id %>"></a></p>
+                            <p>Cantidad de comentarios: <%= productos[i].comments.length %></p>
+                        </article>
                     </section>
                 </div>
             <% } %>

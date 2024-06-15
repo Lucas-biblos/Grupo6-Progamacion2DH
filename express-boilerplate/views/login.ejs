@@ -72,7 +72,7 @@
 			<div class="login-userPassword">
 				<form action="/login" method="POST" novalidate>
 					<label class="usuarioemaillogin" for="email">Email</label>
-					<input class="inputparalogin" type="email" id="email" name="email" required>
+					<input class="inputparalogin" type="email" id="email" name="email" required >
 					<% if (locals.errors && errors.email) { %>
 						<div class="">
 							<%= errors.email.msg %>                                
@@ -80,9 +80,9 @@
 					<% } %>
 					<label class="usuarioemaillogin" for="contraseña">Contraseña:</label>
 					<input class="inputparalogin" type="password" id="contraseña" name="contraseña" required>
-					<% if (locals.errors && errors.password) { %>
+					<% if (locals.errors && errors.contraseña) { %>
 						<div class="">
-							<%= errors.password.msg %>                                
+							<%= errors.contraseña.msg %>                                
 						</div>                            
 					<% } %>  
 					<label class="usuarioemaillogin" for="recordarme">Recordarme:</label>

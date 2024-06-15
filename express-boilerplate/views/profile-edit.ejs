@@ -69,7 +69,7 @@
         <div class="col-12">
             <h2 class="products-title">Editar mi perfil</h2>
         </div>
-        <form action="/usuarios/profile/<%= usuario.id %>" method="POST" novalidate>
+        <form action="/usuarios/profile/edit/<%= usuario.id %>" method="POST" novalidate>
             <div class="col-12">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" value="<%= usuario.email %>" required>
@@ -84,8 +84,8 @@
                 <input type="text" id="usuario" name="usuario" value="<%= usuario.usuario %>" required>
             </div>
             <div class="col-12">
-                <label for="contraseña">Contraseña:</label>
-                <input type="password" id="contraseña" name="contraseña" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
 				<% if (locals.errors && errors.password) { %>
 					<p >
 						<%= errors.password.msg %>                                

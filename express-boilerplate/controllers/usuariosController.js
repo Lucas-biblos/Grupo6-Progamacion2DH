@@ -11,24 +11,22 @@ const controller = {
                 {
                     model: db.Product ,
                     required: true ,
-                    association: 'products',
-                    order: [['created_at', 'DESC']]
+                    association: 'products'
                 },
                 {
                     model: db.Comment ,
                     required: true ,
-                    association: 'comments',
-                    order: [['created_at', 'DESC']]
+                    association: 'comments'
                 }
-            ]
+            ],
+                order: [['created_at', 'DESC']] 
+            
         })
         .then(function(user) {
             console.log(user.dataValues)
             const cantidadProductos = user.dataValues.products.length;
             const cantidadComentarios = user.dataValues.comments.length; // Corregido el typo de 'lenght' a 'length'
-            console.log("hola")
             const currentProducts = user.dataValues.products.map(function(product) {return product.dataValues} )
-            console.log(currentProducts)
             res.render('profile', {
                 usuario: user.dataValues,
                 cantidadProductos: cantidadProductos,
@@ -62,15 +60,9 @@ const controller = {
     profileStore: function(req, res) {
         const userId = req.params.id;
         const validationErrors = validationResult(req); // Se agregó la definición de validationErrors
-
-        if (!validationErrors.isEmpty()) {
-            return res.render("profile-edit", {
-                errors: validationErrors.mapped(),
-                oldData: req.body
-            });
-        }
-
+        console.log(userId)
         const user = {
+            id: userId,
             email: req.body.email,
             usuario: req.body.usuario,
             fecha: req.body.fecha,
@@ -78,14 +70,23 @@ const controller = {
             foto: req.body.foto, // Corregido a foto en lugar de fecha
             password: bcrypt.hashSync(req.body.password, 10)
         };
-
+        console.log(validationErrors.mapped())
+        if (!validationErrors.isEmpty()) {
+            return res.render("profile-edit",  {
+                errors: validationErrors.mapped(),
+                oldData: req.body ,
+                usuario: user
+            });
+        }
+        console.log(req.body)
+        console.log("hola")
         db.User.update(user, {
             where: {
                 id: userId
             }
         })
         .then(function() {
-            return res.redirect(`/usuarios/profile/${userId}`); 
+            res.redirect(`/usuarios/profile/${userId}`)
         })
         .catch(function(err) {
             console.log("Error al guardar el usuario", err);

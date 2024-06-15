@@ -11,7 +11,6 @@ let registerController = {
    },
    store: function (req, res) {
        const validationErrors = validationResult(req);
-       console.log("validationErrors : ", validationErrors)
             
        if(!validationErrors.isEmpty()){
            return res.render("register",{
@@ -19,13 +18,14 @@ let registerController = {
                oldData:req.body
            })
        }
+       console.log(req.body)
        const user = {
            email: req.body.email,
            usuario : req.body.usuario,
            fecha: req.body.fecha,
            DNI: req.body.dni,
            foto: req.body.fecha,
-           password: bcrypt.hashSync(req.body.password, 10),
+           password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)),
        };
        //creamos el usuario
        db.User

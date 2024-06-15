@@ -5,7 +5,7 @@ const loginValidations = require("../middlewares/login-validator")
 
 
 router.get('/', loginController.index);
-router.post('/',  loginController.login);
+router.post('/', loginValidations,  loginController.login);
 router.post('/logout', loginValidations, loginController.logout);
 
 

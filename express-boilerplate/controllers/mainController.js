@@ -17,7 +17,6 @@ const indexController = {
             ],
             order: [['created_at', 'DESC']]
         }).then(function(productos) {
-            console.log(productos)
             res.render("index", { productos: productos });
         })
         .catch(function(error) {
