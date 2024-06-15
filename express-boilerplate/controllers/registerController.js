@@ -24,7 +24,7 @@ let registerController = {
            usuario : req.body.usuario,
            fecha: req.body.fecha,
            DNI: req.body.dni,
-           foto: req.body.fecha,
+           foto: req.body.foto,
            password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)),
        };
        //creamos el usuario

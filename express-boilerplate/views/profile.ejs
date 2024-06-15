@@ -72,7 +72,11 @@
 <section class="info-usuario container products-wrapper">
     <div class="row">
         <div class="img-container offset-3 col-2">
-            <img src="/images/users/usuario1.jpg" alt="foto de perfil" class="foto-perfil">
+			<% if (usuario.foto) { %>
+				<img src="/images/users/<%= usuario.foto %>" alt="Imagen de perfil">
+			<% } else { %>
+				<img src="/images/users/undefined.jpg" alt="Imagen no disponible">
+			<% } %>
         </div>
         <div class="data-container col-6">
             <div class="d-flex align-items-center ">

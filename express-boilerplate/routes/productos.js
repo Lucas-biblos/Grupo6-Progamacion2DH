@@ -7,7 +7,7 @@ const createProductValidation = require('../middlewares/createProduct-validator'
 router.get('/', productoController.index)
 
 router.get('/productoagregado', productoController.agregarproductos)
-router.post('/', createProductValidation.creaciondeproducto, productoController.agregarproductos)
+router.post('/:id', createProductValidation.creaciondeproducto, productoController.agregarproductos)
 router.get('/create', productoController.create);
 /*
 router.post('/delete/:id', productoController.delete);
