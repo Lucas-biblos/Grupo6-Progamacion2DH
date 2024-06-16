@@ -80,7 +80,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Cafetera</h2> 
+			<h2 class="products-title"><%= productos.producto%></h2>
 			<p class="product-detail-description">
 				<a href="/product-add">Editar</a>
 			</p>
@@ -88,7 +88,7 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/images/products/cafetera.jpg" alt="" class="product-detail-img">
+					<img src=<%= productos.imagen%> alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						Cafetera de alta calidad, diseñada tecnología avanzada, esta cafetera ofrece un rendimiento excepcional para satisfacer incluso a los amantes del café más exigentes. Con su elegante diseño y funcionalidad intuitiva, preparar tu café favorito nunca ha sido tan fácil y rápido.
 						Además, su capacidad para mantener el café caliente durante horas te permite disfrutar de cada sorbo en su temperatura perfecta.
@@ -109,10 +109,16 @@
 							</article>
 						<% } %>
 					</section>
-					<form class="form" action="/usuarios/profile/1" method="get">
-						<input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
+					<% if (locals.user != undefined) { %>
+						<form class="form" action="/product/id/<%= productos.id %>" method="get">
+							<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+							<button type="submit" class="buy-now-button botonComentario">AGREGAR COMENTARIO</button>
+						</form>
+						<% } else { %>
+							<div>
+								<a href="/login">Debes iniciar sesión para agregar un comentario.</a>
+							</div>
+						<% } %>
 					<hr>
 				</div>
 			</div>

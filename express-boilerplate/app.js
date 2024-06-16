@@ -12,9 +12,9 @@ const db = require("./database/models");
 const app = express();
 const usuariosRouter = require('./routes/usuarios');
 const { productos } = require("./db/datos");
-const productosRouter = require("./routes/productos")
-const loginRouter = require("./routes/login")
-const registerRouter = require("./routes/register")
+const productosRouter = require("./routes/productos");
+const loginRouter = require("./routes/login");
+const registerRouter = require("./routes/register");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

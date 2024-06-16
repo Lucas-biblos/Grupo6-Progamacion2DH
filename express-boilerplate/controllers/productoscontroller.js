@@ -31,25 +31,23 @@ const productoController = {
     },
 
     agregarproductos: function(req, res) {
-        res.render('product-add', { title: "Agrega un Producto", usuario: db.usuarios });
+        res.render('product-add', { title: "Agrega un Producto", usuario: db.User });
     },
     
     create: function(req, res) {
-        let id = req.params.id;
-        db.usuarios.findByPk(id)
-            .then(function(results) {
-                return res.render('product-add', { title: "Add Product", usuarios: results });
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
+        if (req.session.user != undefined) {
+            return res.render('product-add', { title: "Add Product" });
+        } else {
+            return res.redirect("/login");
+        }
     },
+    
 
     store: function(req, res) {
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            db.productos.create(req.body)
+            db.Product.create(req.body)
                 .then((result) => {
                     return res.redirect("/product/id/" + result.id);
                 })
@@ -65,10 +63,10 @@ const productoController = {
         let form = req.body;
 
         let criterio = {
-            include: [{ association: "User" }]
+            include: [{ association: "user" }]
         };
 
-        db.Producto.findByPk(form.id, criterio)
+        db.Product.findByPk(form.id, criterio)
             .then(function(results) {
                 return res.render('product-edit', { title: `Editar el producto ${results.nombreProd}`, productos: results });
             })
@@ -89,7 +87,7 @@ const productoController = {
             if (req.session.user != undefined) {
                 let id = req.session.user.id;
                 if (form.idUsuario == id) {
-                    db.Producto.update(form, filtrado)
+                    db.product.update(form, filtrado)
                         .then((result) => {
                             return res.redirect("/product/id/" + form.id);
                         })
@@ -97,17 +95,17 @@ const productoController = {
                             console.log(err);
                         });
                 } else {
-                    return res.redirect("/users/profile/id/" + id);
+                    return res.redirect("/profile/id/" + id);
                 }
             } else {
-                return res.redirect("/users/login");
+                return res.redirect("/login");
             }
         } else {
             let criterio = {
-                include: [{ association: "usuario" }]
+                include: [{ association: "user" }]
             };
 
-            db.Producto.findByPk(form.id, criterio)
+            db.Product.findByPk(form.id, criterio)
                 .then(function(results) {
                     return res.render('product-edit', { title: "Edit Product", errors: errors.mapped(), old: req.body, productos: results });
                 })
@@ -127,7 +125,7 @@ const productoController = {
         if (req.session.user != undefined) {
             let id = req.session.user.id;
             if (form.idUsuario == id) {
-                db.Producto.destroy(filtrado)
+                db.Product.destroy(filtrado)
                     .then((result) => {
                         return res.redirect("/");
                     })
@@ -135,10 +133,10 @@ const productoController = {
                         console.log(err);
                     });
             } else {
-                return res.redirect("/users/profile/" + id);
+                return res.redirect("/profile/" + id);
             }
         } else {
-            return res.redirect("/users/login");
+            return res.redirect("/login");
         }        
     }
 };
