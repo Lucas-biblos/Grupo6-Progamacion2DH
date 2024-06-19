@@ -9,10 +9,11 @@ module.exports= {
   },
   "test": {
     "username": "root",
-    "password": "",
-    "database": "database_test",
+    "password": "root",
+    "database": "proyectointegrador1",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port" : "8889"
   },
   "production": {
     "username": "root",

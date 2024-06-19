@@ -10,6 +10,8 @@ router.get('/productoagregado', productoController.agregarproductos)
 router.get('/create', productoController.create);
 router.post('/delete/:id', productoController.destroy)
 router.post('/:id', createProductValidation.creaciondeproducto, productoController.agregarproductos)
+router.get ("/:id", productoController.view)
+router.get ("/:id/edit", productoController.viewProductEdit)
 
 //router.post('/create', createProductValidation, productoController)
 /*

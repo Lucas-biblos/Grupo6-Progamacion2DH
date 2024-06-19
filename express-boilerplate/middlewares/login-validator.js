@@ -33,8 +33,8 @@ const loginValidations = [
                 if(user){
                     const password = user.password;
                     console.log(value, "=>" ,password)
-                     // const passwordOk= bcryptjs.compareSync(value,password);
-                    const passwordOk = value==password ;
+                    const passwordOk= bcryptjs.compareSync(value,password);
+                   // const passwordOk = value==password ;
                     if(!passwordOk){
                         throw new Error("Contraseña incorrecta")
                     }                    

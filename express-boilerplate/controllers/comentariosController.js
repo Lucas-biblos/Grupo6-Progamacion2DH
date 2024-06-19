@@ -4,7 +4,7 @@ const { validationResult } = require("express-validator");
 const { comentarios } = require('../db/datos');
 const { comentario } = require('../middlewares/createProduct-validator');
 
-const productoController = {
+const comentariosController = {
     index: function(req, res) {
         let id = req.params.id;
         let asociaciones = {
@@ -31,72 +31,24 @@ const productoController = {
             console.log(error);
         });
     },
-
-    agregarproductos: function(req, res) {
-        res.render('product-add', { title: "Agrega un Producto", usuario: db.usuarios });
-    },
     
     create: function(req, res) {
-        let id = req.params.id;
-        db.usuarios.findByPk(id)
+        let id = req.params.productId;
+        let userId = req.session.user.id;
+        //db.Product.findByPk(id)
+        const comentario = {texto_comentario: req.body.comentario, id_producto: id,
+        usuario_id: userId}
+        db.Comment.create(comentario)
+        
             .then(function(results) {
-                return res.render('product-add', { title: "Add Product", usuarios: results });
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
+                 return res.redirect (`/productos/${id}`)})
+             .catch(function(error) {
+                 console.log(error);
+             });
     },
 
     
-    store: function(req, res) {
-        let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-            db.productos.create(req.body)
-                .then((result) => {
-                    return res.redirect("/product/id/" + result.id);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });        
-        } else {
-            return res.render('product-add', { title: "register", errors: errors.mapped(), old: req.body });        
-        }
-
-        let data = req.body
-
-        let product = {
-            imagen: data.imagen,
-            producto: data.producto,
-            descripcion: data.descripcion,
-            usuario_id: data.usuario_id
-        }
-
-        db.Product.create(product)
-            .then((productCreado) => {
-             
-                return res.redirect('/');
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    },
-
-    formUpdate: function(req, res) {
-        let form = req.body;
-
-        let criterio = {
-            include: [{ association: "user" }]
-        };
-
-        db.Producto.findByPk(form.id, criterio)
-            .then(function(results) {
-                return res.render('product-edit', { title: `Editar el producto ${results.nombreProd}`, productos: results });
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    },
+   
 
     update: function(req, res) {
         let form = req.body;
@@ -162,40 +114,7 @@ const productoController = {
             return res.redirect("/users/login");
         }        
     },
-    view: function (req, res) {
-        let id = req.params.id;
-        let asociaciones = {
-            include: [
-              {association: "user"},
-              {association: "comments", 
-                include: [{association: 'user'} 
-                ]}
-            ]
-        };
-        db.Product.findByPk(id, asociaciones)
-        .then((producto) => {
-            let currentproduct = producto.dataValues
-            let currentcomentarios = currentproduct.comments.map(comentario=>comentario.dataValues)
-            console.log(currentcomentarios)
-            console.log (currentproduct)
-            return res.render("product", {productos: currentproduct, comentarios: currentcomentarios});
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-    },
-    viewProductEdit: function (req, res) {
-        let id = req.params.id;
-        db.Product.findByPk(id)
-        .then((producto) => {
-            let currentproduct = producto.dataValues
-            console.log (currentproduct)
-            return res.render("product-add", {productos: currentproduct});
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-    }
+   
 };
 
-module.exports = productoController;
+module.exports = comentariosController;

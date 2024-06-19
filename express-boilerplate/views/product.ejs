@@ -82,7 +82,7 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= productos.producto%></h2>
 			<p class="product-detail-description">
-				<a href="/product-add">Editar</a>
+				<a href=<%= `/productos/${productos.id}/edit`%> >Editar</a>
 			</p>
 		</div>
 		<div class="product-detail">
@@ -93,13 +93,13 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for (let i = 0; i < 5; i++) { %>
+						<% for (let i = 0; i < comentarios.length; i++) { %>
 							<% const comentario = comentarios[i]; %>
 							<article>
 								
 								<div class="data">
 									<p class="user">
-										<a href="./profile.ejs"><strong><%= comentario.id_usuario %></strong></a>
+										<a href="/usuarios/profile/<%= comentario.usuario_id %>"><strong><%= comentario.usuario_id %></strong></a>
 										<%= comentario.texto_comentario %>
 									</p>
 								</div>
@@ -107,8 +107,8 @@
 						<% } %>
 					</section>
 					<% if (locals.user != undefined) { %>
-						<form class="form" action="/product/id/<%= productos.id %>" method="get">
-							<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+						<form class="form" action="/comentarios/create/<%= productos.id %>" method="POST">
+							<input class="form-input" type="text" value="" id="comentario" name="comentario" placeholder="Agregar comentario">
 							<button type="submit" class="buy-now-button botonComentario">AGREGAR COMENTARIO</button>
 						</form>
 						<% } else { %>

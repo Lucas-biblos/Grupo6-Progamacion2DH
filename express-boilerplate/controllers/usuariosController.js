@@ -6,24 +6,25 @@ const op = db.Sequelize.Op;
 const controller = {
     profile: function(req, res) {
         const userId = req.params.id; // Se agregó la definición de userId
+        console.log (userId)
         db.User.findByPk(userId, {
             include: [
                 {
-                    model: db.Product ,
-                    required: true ,
+                    //model: db.Product ,
+                    //required: true ,
                     association: 'products'
                 },
                 {
-                    model: db.Comment ,
-                    required: true ,
+                    // model: db.Comment ,
+                    //required: true ,
                     association: 'comments'
-                }
-            ],
+                } 
+           ],
                 order: [['created_at', 'DESC']] 
             
         })
         .then(function(user) {
-            console.log(user.dataValues)
+            console.log(user)
             const cantidadProductos = user.dataValues.products.length;
             const cantidadComentarios = user.dataValues.comments.length; // Corregido el typo de 'lenght' a 'length'
             const currentProducts = user.dataValues.products.map(function(product) {return product.dataValues} )

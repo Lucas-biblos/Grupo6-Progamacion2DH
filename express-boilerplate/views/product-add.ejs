@@ -59,7 +59,7 @@
 				<form action="/login/logout" method="POST" class="d-flex justify-content-center">
 					<button type="submit" class="btn btn-danger">Logout</button>
 				</form>
-				<form action="/usuarios/profile/<%= user.id %>" method="POST" class="d-flex justify-content-center">
+				<form action="/usuarios/profile/<%= locals.user.id %>" method="POST" class="d-flex justify-content-center">
 					<button type="submit" class="btn btn-danger">Mi perfil</button>
 				</form>
 

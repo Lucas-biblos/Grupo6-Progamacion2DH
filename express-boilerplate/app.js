@@ -15,6 +15,7 @@ const { productos } = require("./db/datos");
 const productosRouter = require("./routes/productos");
 const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
+const comentariosRouter = require("./routes/comentarios")
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -66,6 +67,7 @@ app.use("/usuarios", usuariosRouter);
 app.use("/productos", productosRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter)
+app.use("/comentarios", comentariosRouter)
 
 // Use your routes here
 
