@@ -55,13 +55,19 @@
 				</ul>
 					<% if(locals.user){ %>
 						<h2 class="text-center mb-3">Hola: <%= usuario.usuario %></h2>
-					<% } %>
-				
 						<form action="/login/logout" method="POST" class="d-flex justify-content-center">
 							<button type="submit" class="btn btn-danger">Logout</button>
 						</form>
 						<a href="/usuarios/profile/edit/<%= usuario.id %>" class="btn btn-primary">Editar perfil</a>
 						<a href="/productos/productoagregado" class="btn btn-primary">Agregar producto</a>
+						<% } else { %>
+							<div class="d-flex justify-content-center mb-3">
+								<a href="/login" class="btn btn-success mx-2">Ingresar</a>
+								<a href="/register" class="btn btn-success mx-2">Registrate</a>
+							</div>
+						<% } %>
+				
+
 	
 				</ul>
 			</nav>
@@ -106,7 +112,7 @@
 			</div>
 	
 			<% if (cantidadProductos && cantidadProductos > 0) { %>
-				<% for(let i = 0; i < cantidadProductos; i++) { %>
+				<% for(let i = cantidadProductos - 1; i >= 0; i--) { %>
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
 							<a href="/productos/<%= productos[i].id %>">

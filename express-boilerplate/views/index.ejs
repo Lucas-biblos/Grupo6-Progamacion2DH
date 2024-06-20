@@ -65,7 +65,7 @@
             <div class="col-12">
                 <h2 class="products-title">Novedades</h2>
             </div>
-            <% for (let i = 7; i >= 0; i--) { %>
+            <% for (let i = productos.length - 1; i >= 0; i--) { %>
                 <div class="col-12 col-sm-6 col-lg-3">
                     <section class="product-box">
                         <a href="/productos/<%= productos[i].id %>">
@@ -75,7 +75,7 @@
                         </a>
                         <article class="product-box_data">
                             <h2><%= productos[i].producto %></h2>
-                            <p> <a href="/usuarios/profile/<%= productos[i].user.id %>"></a>Publicado por: <%= productos[i].user.usuario %> <a href="/usuarios/profile/<%= productos[i].user.id %>"></a></p>
+                            <p>Publicado por: <a href="/usuarios/profile/<%= productos[i].user.id %>"><%= productos[i].user.usuario %></a></p>
                             <p>Cantidad de comentarios: <%= productos[i].comments.length %></p>
                         </article>
                     </section>
