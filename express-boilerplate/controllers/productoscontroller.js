@@ -37,31 +37,7 @@ const productoController = {
     },
     
     create: function(req, res) {
-        let id = req.params.id;
-        db.usuarios.findByPk(id)
-            .then(function(results) {
-                return res.render('product-add', { title: "Add Product", usuarios: results });
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-    },
-
-    
-    store: function(req, res) {
         let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-            db.productos.create(req.body)
-                .then((result) => {
-                    return res.redirect("/product/id/" + result.id);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });        
-        } else {
-            return res.render('product-add', { title: "register", errors: errors.mapped(), old: req.body });        
-        }
 
         let data = req.body
 
@@ -69,13 +45,18 @@ const productoController = {
             imagen: data.imagen,
             producto: data.producto,
             descripcion: data.descripcion,
-            usuario_id: data.usuario_id
+            usuario_id: req.session.user.id
+        }
+
+        if (errors.isEmpty()==false){        
+            
+            return res.render('product-add', { title: "register", errors: errors.mapped(), old: req.body });        
         }
 
         db.Product.create(product)
             .then((productCreado) => {
              
-                return res.redirect('/');
+                return res.redirect(`/usuarios/profile/${req.session.user.id}`);
             })
             .catch(error => {
                 console.log(error);

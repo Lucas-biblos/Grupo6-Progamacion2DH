@@ -8,9 +8,9 @@ const createProductValidation = {
         .notEmpty()
         .withMessage("Debes cargar una imagen")
         .bail(),
-    body("nombre")
+    body("producto")
         .notEmpty()
-        .withMessage("Debes completar este campo con un nombre")
+        .withMessage("Debes completar este campo con un nombre para el producto")
         .bail()
         .isLength({ max: 20 }),
     body("descripcion")
