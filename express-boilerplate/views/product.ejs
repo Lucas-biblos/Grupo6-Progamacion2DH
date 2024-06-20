@@ -60,10 +60,9 @@
 							<form action="/login/logout" method="POST" class="d-flex justify-content-center">
 								<button type="submit" class="btn btn-danger">Logout</button>
 							</form>
-							<form action="/usuarios/profile/<%= user.id %>" method="POST" class="d-flex justify-content-center">
-								<button type="submit" class="btn btn-danger">Mi perfil</button>
-							</form>
-							<form action="/productos/productoagregado" method="POST" class="d-flex justify-content-center">
+							<a href="/usuarios/profile/<%= locals.user.id %>" class="d-flex justify-content-center btn btn-danger">Mi perfil</a>
+		
+							<form action="/productos/productoagregado" method="POST" class="d-flex justify-content-center ">
 								<button type="submit" class="btn btn-danger">Agregar producto</button>
 							</form>
 					<% } else { %>
@@ -84,12 +83,16 @@
 			<p class="product-detail-description">
 				<a href=<%= `/productos/${productos.id}/edit`%> >Editar</a>
 			</p>
+		
+			
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="../public/images/products/ <% productos.imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description"><%= productos.descripcion%></p>
+					
+					
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
