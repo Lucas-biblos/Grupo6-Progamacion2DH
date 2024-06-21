@@ -91,6 +91,9 @@
 			<h2 class="products-title">
 				<%= productos.producto%>
 			</h2>
+			<p class="product-detail-description">
+				<a href="/usuarios/profile/<%= usuario.id %>"><%= usuario.usuario %></a>
+			</p>
 			<% if (locals.user != undefined && locals.user.id === usuario.id) { %>
 
 
@@ -122,8 +125,8 @@
 
 									<div class="data">
 										<p class="user">
-											<a href="/usuarios/profile/<%= comentario.usuario_id %>"><strong>
-													<%= comentario.usuario_id %>
+											<a href="/usuarios/profile/<%= comentario.usuario.id %>"><strong>
+													<%= comentario.usuario.usuario %>
 												</strong></a>
 											<%= comentario.texto_comentario %>
 										</p>

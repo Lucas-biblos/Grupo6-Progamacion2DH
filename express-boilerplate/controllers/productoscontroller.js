@@ -170,12 +170,12 @@ const productoController = {
                         })
                             .then(function () {
                                 db.Product.destroy(filtrado)
-                                .then((result) => {
-                                    return res.redirect("/");
-                                })
-                                .catch((err) => {
-                                    console.log(err);
-                                });
+                                    .then((result) => {
+                                        return res.redirect("/");
+                                    })
+                                    .catch((err) => {
+                                        console.log(err);
+                                    });
                             })
 
                     } else {
@@ -201,10 +201,9 @@ const productoController = {
         db.Product.findByPk(id, asociaciones)
             .then((producto) => {
                 let currentproduct = producto.dataValues
-                let currentcomentarios = currentproduct.comments.map(comentario => comentario.dataValues)
-                let currentuser= currentproduct.user.dataValues
+                let currentcomentarios = currentproduct.comments.map(comentario => ({ ...comentario.dataValues, usuario: comentario.dataValues.user.dataValues }))
+                let currentuser = currentproduct.user.dataValues
                 console.log(currentcomentarios)
-                console.log(currentproduct)
                 return res.render("product", { productos: currentproduct, comentarios: currentcomentarios, usuario: currentuser });
             })
             .catch((err) => {
