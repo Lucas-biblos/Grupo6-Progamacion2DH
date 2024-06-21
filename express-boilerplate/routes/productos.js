@@ -13,7 +13,7 @@ router.post('/delete/:id', productoController.destroy)
 router.post('/', createProductValidation.creaciondeproducto, productoController.agregarproductos)
 router.get ("/:id", productoController.view)
 router.get ("/:id/edit", productoController.viewProductEdit)
-
+router.post ("/:id/edit", productoController.update)
 
 //router.post('/create', createProductValidation, productoController)
 /*
