@@ -110,7 +110,7 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="../public/images/products/ <% productos.imagen %>" alt="" class="product-detail-img">
+					<img src="/images/products/<%= productos.imagen %>" alt="<%= productos.producto %>">
 					<p class="product-detail-description">
 						<%= productos.descripcion%>
 					</p>
@@ -119,20 +119,24 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for (let i=0; i < comentarios.length; i++) { %>
-							<% const comentario=comentarios[i]; %>
+						<% if (comentarios.length === 0) { %>
+							<p>No hay comentarios.</p>
+						<% } else { %>
+							<% for (let i=0; i < comentarios.length; i++) { %>
+								<% const comentario = comentarios[i]; %>
 								<article>
-
 									<div class="data">
 										<p class="user">
-											<a href="/usuarios/profile/<%= comentario.usuario.id %>"><strong>
-													<%= comentario.usuario.usuario %>
-												</strong></a>
+											<a href="/usuarios/profile/<%= comentario.usuario.id %>">
+												<strong><%= comentario.usuario.usuario %></strong>
+											</a>
 											<%= comentario.texto_comentario %>
 										</p>
 									</div>
 								</article>
-								<% } %>
+							<% } %>
+						<% } %>
+						
 					</section>
 					<% if (locals.user !=undefined) { %>
 						<form class="form" action="/comentarios/create/<%= productos.id %>" method="POST">
