@@ -53,87 +53,56 @@
 					<li><a class="etiqheader index-titleMain" href="/">Todos los productos</a></li>
 					<!-- solo logueado <li><a href="">Cargar productos</a></li> -->
 				</ul>
-					<% if(locals.user){ %>
-						<h2 class="text-center mb-3">Hola: <%= usuario.usuario %></h2>
-						<form action="/login/logout" method="POST" class="d-flex justify-content-center">
-							<button type="submit" class="btn btn-danger">Logout</button>
-						</form>
-						<a href="/usuarios/profile/edit/<%= usuario.id %>" class="btn btn-primary">Editar perfil</a>
-						<a href="/productos/productoagregado" class="btn btn-primary">Agregar producto</a>
-						<% } else { %>
-							<div class="d-flex justify-content-center mb-3">
-								<a href="/login" class="btn btn-success mx-2">Ingresar</a>
-								<a href="/register" class="btn btn-success mx-2">Registrate</a>
-							</div>
-						<% } %>
-				
-
-	
-				</ul>
+			</ul>		
+			<a href="/" class="btn btn-primary">Home</a>
+			<form action="/login/logout" method="POST" class="d-flex justify-content-center">
+				<button type="submit" class="btn btn-danger">Logout</button>
+			</form>
+			<a href="/usuarios/profile/<%= locals.user.id %>" class="btn btn-primary">Mi Perfil</a>
+	</ul>
 			</nav>
 		</div>
 	</header>
 
-<!-- Datos del usuario -->
-<section class="info-usuario container products-wrapper">
-    <div class="row">
-        <div class="img-container offset-3 col-2">
-		
-			<img src="/images/users/<%= usuario.foto %>" alt="Imagen de perfil">
-
-        </div>
-        <div class="data-container col-6">
-            <div class="d-flex align-items-center ">
-                <h1 class="main-title"><%= usuario.usuario %> 
-                </h1>
-                <a class="btn mt-3 ml-4" href="">SEGUIR</a>
-            </div>
-            <div>
-                <p>Email: <%= usuario.email %></p>
-					<ul class="">
-						<li><%= cantidadProductos %> productos publicados</li>
-						<li>3k seguidores</li>
-						<li><%= cantidadComentarios %> comentarios</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- /Datos del usuario -->
-
-	<!-- Mis productos -->
-	
-	<div class="container products-wrapper">
+	<!-- Novedades -->
+	<div class="container products-wrapper ">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">productos</h2>
+				<h2 class="products-title">Editar productos</h2>
 			</div>
-	
-			<% if (cantidadProductos && cantidadProductos > 0) { %>
-				<% for(let i = cantidadProductos - 1; i >= 0; i--) { %>
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<a href="/productos/<%= productos[i].id %>">
-								<figure class="product-box_image">
-									<img src="/images/products/<%= productos[i].imagen %>" alt="<%= productos[i].producto %>">
-								</figure>
-								<article class="product-box_data">
-									<h2><%= productos[i].producto %></h2>
-									<p><%= productos[i].descripcion %></p>
-								</article>
-							</a>
-						</section>
+
+			<div class="form-product"></di>
+				<form action="/productos/<%= producto.id  %>/edit" method="POST">
+					<div class="form-group">
+						<label for="imagen">Imagen:</label>
+						<input value=" <%= producto.imagen %>" type="text" class="form-control-file" id="imagen" name="imagen" >
+						<% if (locals.errors && errors.imagen) { %>
+							<p >
+								<%= errors.imagen.msg %>                                
+							</p>                            
+						<% } %>
 					</div>
-				<% } %>
-			<% } else { %>
-				<div class="col-12">
-					<section class="product-box">
-						<h3>No hay productos publicados de <%= usuario.usuario %></h3>
-					</section>
-				</div>
-			<% } %>
-		</div>
-	</div>
+					<div class="form-group">
+						<label for="producto">Nombre del producto:</label>
+						<input value = "<%= producto.producto %>" type="text" class="form-control" id="producto" name="producto">
+						<% if (locals.errors && errors.producto) { %>
+							<p >
+								<%= errors.producto.msg %>                                
+							</p>                            
+						<% } %>
+					</div>
+					<div class="form-group">
+						<label for="descripcion">Descripción:</label>
+						<textarea class="form-control" id="descripcion" name="descripcion" rows="3"> <%= producto.descripcion %></textarea >
+							<% if (locals.errors && errors.descripcion) { %>
+								<p >
+									<%= errors.descripcion.msg %>                                
+								</p>                            
+							<% } %>
+					</div>
+					<button type="submit" class="btn btn-primary">Editar el producto</button>
+				</form>
+			</div>
 
 	
 <%- include('./partials/footer') %>

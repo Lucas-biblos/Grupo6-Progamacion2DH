@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link width="" rel="shortcut icon" href="./images/amazon-logo-s3f.png" />
-	
-			<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Playfair+Display&family=Raleway:wght@100&family=Work+Sans:wght@100;400&display=swap">
+
+	<!-- Font Awesome Stylesheet -->
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Playfair+Display&family=Raleway:wght@100&family=Work+Sans:wght@100;400&display=swap">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=Open+Sans:ital@1&family=Playfair+Display&family=Raleway:wght@100&family=Work+Sans:wght@100;400&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Jacquard+24&family=Open+Sans:ital@1&family=Playfair+Display&family=Raleway:wght@100&family=Work+Sans:wght@100;400&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=Open+Sans:ital@1&family=Playfair+Display&family=Raleway:wght@100&family=Work+Sans:wght@100;400&display=swap"
+		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Jacquard+24&family=Open+Sans:ital@1&family=Playfair+Display&family=Raleway:wght@100&family=Work+Sans:wght@100;400&display=swap"
+		rel="stylesheet">
 	<!-- Bootstrap Grid Stylesheet -->
-	
+
 	<!-- Own Stylesheet -->
 	<link rel="stylesheet" href="/stylesheets/css/app.css">
-    <link rel="stylesheet" href="/stylesheets/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="/stylesheets/css/bootstrap-grid.min.css">
 </head>
+
 <body>
 	<!-- Header -->
 	<header class="main-header">
@@ -30,14 +37,15 @@
 						<img class="headerImg" src="/images/amazon-logo-s3f.png">
 					</a>
 				</div>
-	
+
 				<div class="col-7 col-md-6">
 					<form action="/search" method="GET" class="search-form">
-						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
+						<input type="text" name="search" placeholder="Buscar productos, marcas y más"
+							class="search-form_input">
 						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
 					</form>
 				</div>
-	
+
 				<div class="col-12 col-md-4">
 					<a class="main-header_credit-link">
 						<i class="fas fa-hand-holding-usd"></i>
@@ -53,25 +61,25 @@
 					<li><a class="etiqheader index-titleMain" href="/">Todos los productos</a></li>
 					<!-- solo logueado <li><a href="">Cargar productos</a></li> -->
 				</ul>
-					<form action="/" method="get" class="d-flex justify-content-center">
-						<button type="submit" >Home </button>
+				<form action="/" method="get" class="d-flex justify-content-center">
+					<button type="submit">Home </button>
+				</form>
+				<% if(locals.user){ %>
+					<form action="/login/logout" method="POST" class="d-flex justify-content-center">
+						<button type="submit" class="btn btn-danger">Logout</button>
 					</form>
-					<% if(locals.user){ %>
-							<form action="/login/logout" method="POST" class="d-flex justify-content-center">
-								<button type="submit" class="btn btn-danger">Logout</button>
-							</form>
-							<form action="/usuarios/profile/<%= user.id %>" method="POST" class="d-flex justify-content-center">
-								<button type="submit" class="btn btn-danger">Mi perfil</button>
-							</form>
-							<form action="/productos/productoagregado" method="POST" class="d-flex justify-content-center">
-								<button type="submit" class="btn btn-danger">Agregar producto</button>
-							</form>
+					<a href="/usuarios/profile/<%= locals.user.id %>"
+						class="d-flex justify-content-center btn btn-danger">Mi perfil</a>
+
+					<form action="/productos/productoagregado" method="POST" class="d-flex justify-content-center ">
+						<button type="submit" class="btn btn-danger">Agregar producto</button>
+					</form>
 					<% } else { %>
 						<div class="d-flex justify-content-center mb-3">
 							<a href="/login" class="btn btn-success mx-2">Ingresar</a>
 							<a href="/register" class="btn btn-success mx-2">Registrate</a>
 						</div>
-					<% } %>
+						<% } %>
 			</nav>
 		</div>
 	</header>
@@ -80,48 +88,73 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= productos.producto%></h2>
+			<h2 class="products-title">
+				<%= productos.producto%>
+			</h2>
 			<p class="product-detail-description">
-				<a href=<%= `/productos/${productos.id}/edit`%> >Editar</a>
+				<a href="/usuarios/profile/<%= usuario.id %>"><%= usuario.usuario %></a>
 			</p>
+			<% if (locals.user != undefined && locals.user.id === usuario.id) { %>
+
+
+				<p class="product-detail-description">
+					<a href=<%=`/productos/${productos.id}/edit`%> >Editar</a>
+				</p>
+				<form action="/productos/delete/<%= productos.id %>" method="POST"
+					class="d-flex justify-content-center ">
+					<button type="submit" class="btn btn-danger">Eliminar producto</button>
+				</form>
+				<% } %>
+
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="../public/images/products/ <% productos.imagen %>" alt="" class="product-detail-img">
-					<p class="product-detail-description"><%= productos.descripcion%></p>
+					<img src="/images/products/<%= productos.imagen %>" alt="<%= productos.producto %>">
+					<p class="product-detail-description">
+						<%= productos.descripcion%>
+					</p>
+
+
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for (let i = 0; i < comentarios.length; i++) { %>
-							<% const comentario = comentarios[i]; %>
-							<article>
-								
-								<div class="data">
-									<p class="user">
-										<a href="/usuarios/profile/<%= comentario.usuario_id %>"><strong><%= comentario.usuario_id %></strong></a>
-										<%= comentario.texto_comentario %>
-									</p>
-								</div>
-							</article>
+						<% if (comentarios.length === 0) { %>
+							<p>No hay comentarios.</p>
+						<% } else { %>
+							<% for (let i=0; i < comentarios.length; i++) { %>
+								<% const comentario = comentarios[i]; %>
+								<article>
+									<div class="data">
+										<p class="user">
+											<a href="/usuarios/profile/<%= comentario.usuario.id %>">
+												<strong><%= comentario.usuario.usuario %></strong>
+											</a>
+											<%= comentario.texto_comentario %>
+										</p>
+									</div>
+								</article>
+							<% } %>
 						<% } %>
+						
 					</section>
-					<% if (locals.user != undefined) { %>
+					<% if (locals.user !=undefined) { %>
 						<form class="form" action="/comentarios/create/<%= productos.id %>" method="POST">
-							<input class="form-input" type="text" value="" id="comentario" name="comentario" placeholder="Agregar comentario">
+							<input class="form-input" type="text" value="" id="comentario" name="comentario"
+								placeholder="Agregar comentario">
 							<button type="submit" class="buy-now-button botonComentario">AGREGAR COMENTARIO</button>
 						</form>
 						<% } else { %>
 							<div>
 								<a href="/login">Debes iniciar sesión para agregar un comentario.</a>
 							</div>
-						<% } %>
-					<hr>
+							<% } %>
+								<hr>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- /product detail -->
 
-	
-<%- include('./partials/footer') %>
+
+	<%- include('./partials/footer') %>

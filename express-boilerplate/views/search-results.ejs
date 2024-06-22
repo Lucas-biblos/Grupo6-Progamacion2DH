@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link width="" rel="shortcut icon" href="./images/amazon-logo-s3f.png" />
-	
-			<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Playfair+Display&family=Raleway:wght@100&family=Work+Sans:wght@100;400&display=swap">
+
+	<!-- Font Awesome Stylesheet -->
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Playfair+Display&family=Raleway:wght@100&family=Work+Sans:wght@100;400&display=swap">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=Open+Sans:ital@1&family=Playfair+Display&family=Raleway:wght@100&family=Work+Sans:wght@100;400&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Jacquard+24&family=Open+Sans:ital@1&family=Playfair+Display&family=Raleway:wght@100&family=Work+Sans:wght@100;400&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=Open+Sans:ital@1&family=Playfair+Display&family=Raleway:wght@100&family=Work+Sans:wght@100;400&display=swap"
+		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Jacquard+24&family=Open+Sans:ital@1&family=Playfair+Display&family=Raleway:wght@100&family=Work+Sans:wght@100;400&display=swap"
+		rel="stylesheet">
 	<!-- Bootstrap Grid Stylesheet -->
-	
+
 	<!-- Own Stylesheet -->
 	<link rel="stylesheet" href="/stylesheets/css/app.css">
-    <link rel="stylesheet" href="/stylesheets/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="/stylesheets/css/bootstrap-grid.min.css">
 </head>
+
 <body>
 	<!-- Header -->
 	<header class="main-header">
@@ -30,14 +37,15 @@
 						<img class="headerImg" src="/images/amazon-logo-s3f.png">
 					</a>
 				</div>
-	
+
 				<div class="col-7 col-md-6">
-					<form action="/search" method="GET" class="search-form">
-						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
+					<form action="/search" method="POST" class="search-form">
+						<input type="text" name="search" placeholder="Buscar productos, marcas y más"
+							class="search-form_input">
 						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
 					</form>
 				</div>
-	
+
 				<div class="col-12 col-md-4">
 					<a class="main-header_credit-link">
 						<i class="fas fa-hand-holding-usd"></i>
@@ -53,27 +61,27 @@
 					<li><a class="etiqheader index-titleMain" href="/">Todos los productos</a></li>
 					<!-- solo logueado <li><a href="">Cargar productos</a></li> -->
 				</ul>
-					<form action="/" method="POST" class="d-flex justify-content-center">
-						<button type="submit" >Home </button>
+				<form action="/" method="POST" class="d-flex justify-content-center">
+					<button type="submit">Home </button>
+				</form>
+				<% if(locals.user){ %>
+					<form action="/login/logout" method="POST" class="d-flex justify-content-center">
+						<button type="submit" class="btn btn-danger">Logout</button>
 					</form>
-						<% if(locals.user){ %>
-							<form action="/login/logout" method="POST" class="d-flex justify-content-center">
-								<button type="submit" class="btn btn-danger">Logout</button>
-							</form>
-							<form action="/usuarios/profile/<%= user.id %>" method="POST" class="d-flex justify-content-center">
-								<button type="submit" class="btn btn-danger">Mi perfil</button>
-							</form>
-							<form action="/productos/productoagregado" method="POST" class="d-flex justify-content-center">
-								<button type="submit" class="btn btn-danger">Agregar producto</button>
-							</form>
-						
-						<% } else { %>
-							<div class="d-flex justify-content-center mb-3">
-								<a href="/login" class="btn btn-success mx-2">Ingresar</a>
-								<a href="/register" class="btn btn-success mx-2">Registrate</a>
-							</div>
+					<form action="/usuarios/profile/<%= user.id %>" method="POST" class="d-flex justify-content-center">
+						<button type="submit" class="btn btn-danger">Mi perfil</button>
+					</form>
+					<form action="/productos/productoagregado" method="POST" class="d-flex justify-content-center">
+						<button type="submit" class="btn btn-danger">Agregar producto</button>
+					</form>
+
+					<% } else { %>
+						<div class="d-flex justify-content-center mb-3">
+							<a href="/login" class="btn btn-success mx-2">Ingresar</a>
+							<a href="/register" class="btn btn-success mx-2">Registrate</a>
+						</div>
 						<% } %>
-				</ul>
+							</ul>
 			</nav>
 		</div>
 	</header>
@@ -86,30 +94,44 @@
 			</div>
 			<div class="container products-wrapper">
 				<div class="row">
-					
-					
-					<%for (let i = 0; i < 8 && i < productos.length; i++) { %> 
-					<!-- Show the "ultimos" products/ Aca cambiar el for para que matchee las busquedas y aparezcan de mas nuevo a mas viejo y que en caso de no enocntar resultados, mostrar el mensaje “No hay resultados para su criterio de búsqueda”.
+
+					<% if (esVacio) { %>
+						<p>No se encontraron productos con esa descripcion</p>
+
+						<% } %>
+							<%for (let i=0; i < 8 && i < productos.length; i++) { %>
+								<!-- Show the "ultimos" products/ Aca cambiar el for para que matchee las busquedas y aparezcan de mas nuevo a mas viejo y que en caso de no enocntar resultados, mostrar el mensaje “No hay resultados para su criterio de búsqueda”.
 -->
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<a href="/productos/<%= productos[i].id %>">
-								<figure class="product-box_image">
-									<img src="<%= productos[i].imagen %>" >
-								</figure>
-								<article class="product-box_data">
-									<h2><%= productos[i].producto %></h2>
-									<p><%= productos[i].descripcion %></p>
-								<!-- aca se agrego el usuario y redirige al perfil, revisar luego si esra bien codeado-->
-									<p>Agregado por: <a href="/usuarios/profile/<%= productos[i].usuario_id %>"><%= productos[i].usuario_id.usuario %></a></p>
-									<p>Comentarios: <%= productos[i].texto_comentario %></p>
-								</article>
-							</a>
-					
-						</section>
-					</div>
-					<%}%>
+								<div class="col-12 col-sm-6 col-lg-3">
+									<section class="product-box">
+										<a href="/productos/<%= productos[i].id %>">
+											<figure class="product-box_image">
+												<img src="/images/products/<%= productos[i].imagen %>" alt="<%= productos[i].producto %>">
+											</figure>
+											<article class="product-box_data">
+												<h2>
+													<%= productos[i].producto %>
+												</h2>
+												<p>
+													<%= productos[i].descripcion %>
+												</p>
+												<!-- aca se agrego el usuario y redirige al perfil, revisar luego si esra bien codeado-->
+												<p>Agregado por: <a
+														href="/usuarios/profile/<%= productos[i].usuario_id %>">
+														<%= productos[i].user.usuario %>
+													</a></p>
+												<% productos[i].comments.forEach(comment => { %>
+													<p>Comentarios: <%=
+														comment.texto_comentario %>
+												</p>
+												  <% }); %>
+											</article>
+										</a>
+
+									</section>
+								</div>
+								<%}%>
 
 
-	
-<%- include('./partials/footer') %>
+
+									<%- include('./partials/footer') %>
