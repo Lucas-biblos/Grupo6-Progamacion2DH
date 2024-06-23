@@ -73,7 +73,7 @@
                     <label for="email" class="registro">Email:</label>
                     <input type="email" id="email" name="email" required>
                     <% if (locals.errors && errors.email) { %>
-						<p >
+						<p class="error" >
 							<%= errors.email.msg %>                                
                         </p>                            
 					<% } %>
@@ -86,7 +86,7 @@
                     <label for="password" class="registro">Contraseña:</label>
                     <input type="password" id="password" name="password" required>
                     <% if (locals.errors && errors.password) { %>
-						<p >
+						<p class="error" >
 							<%= errors.password.msg %>                                
                         </p>                            
 					<% } %>
@@ -95,7 +95,7 @@
                     <label for="retypePassword" class="registro">Contraseña:</label>
                     <input type="password" id="retypePassword" name="retypePassword" required>
                     <% if (locals.errors && errors.retypePassword) { %>
-						<p >
+						<p class="error" >
 							<%= errors.retypePassword.msg %>                                
                         </p>                            
 					<% } %>

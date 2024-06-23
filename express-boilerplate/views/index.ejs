@@ -38,7 +38,7 @@
                     <li><a class="etiqheader index-titleMain" href="/">Todos los productos</a></li>
                 </ul>
                 <% if (locals.user) { %>
-                    <h2 class="text-center mb-3">Hola: <%= locals.user.usuario %></h2>
+                    <h2 class="text-center mb-3 user-saludo">Hola: <%= locals.user.usuario %></h2>
                     <form action="/login/logout" method="POST" class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-danger">Logout</button>
                     </form>
@@ -58,7 +58,7 @@
         </div>
     </header>
     <div class="banner">
-        <img class="fotopromo" src="images/pngtree-e-commerce-taobao-tmall-appliances-promotion-poster-banner-template-image_898363.jpg" alt="Banner de ofertas">
+        <img class="fotopromo" src="images\pngtree-e-commerce-taobao-tmall-appliances-promotion-poster-banner-template-image_898363.jpg" alt="Banner de ofertas">
     </div>
     <div class="container products-wrapper">
         <div class="row">

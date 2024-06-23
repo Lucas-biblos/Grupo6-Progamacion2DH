@@ -61,7 +61,7 @@
 					<li><a class="etiqheader index-titleMain" href="/">Todos los productos</a></li>
 					<!-- solo logueado <li><a href="">Cargar productos</a></li> -->
 				</ul>
-				<form action="/" method="POST" class="d-flex justify-content-center">
+				<form action="/" method="get" class="d-flex justify-content-center">
 					<button type="submit">Home </button>
 				</form>
 				<% if(locals.user){ %>
@@ -96,8 +96,7 @@
 				<div class="row">
 
 					<% if (esVacio) { %>
-						<p>No se encontraron productos con esa descripcion</p>
-
+						<p class="mensaje-no-productos">No se encontraron productos con esa descripción</p>
 						<% } %>
 							<%for (let i=0; i < 8 && i < productos.length; i++) { %>
 								<!-- Show the "ultimos" products/ Aca cambiar el for para que matchee las busquedas y aparezcan de mas nuevo a mas viejo y que en caso de no enocntar resultados, mostrar el mensaje “No hay resultados para su criterio de búsqueda”.

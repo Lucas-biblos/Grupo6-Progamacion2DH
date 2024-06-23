@@ -77,7 +77,7 @@
 						<label for="imagen">Imagen:</label>
 						<input type="text" class="form-control-file" id="imagen" name="imagen" >
 						<% if (locals.errors && errors.imagen) { %>
-							<p >
+							<p class="error">
 								<%= errors.imagen.msg %>                                
 							</p>                            
 						<% } %>
@@ -86,7 +86,7 @@
 						<label for="producto">Nombre del producto:</label>
 						<input type="text" class="form-control" id="producto" name="producto">
 						<% if (locals.errors && errors.producto) { %>
-							<p >
+							<p class="error" >
 								<%= errors.producto.msg %>                                
 							</p>                            
 						<% } %>
@@ -95,7 +95,7 @@
 						<label for="descripcion">Descripción:</label>
 						<textarea  class="form-control" id="descripcion" name="descripcion" rows="3"></textarea >
 							<% if (locals.errors && errors.descripcion) { %>
-								<p >
+								<p class="error">
 									<%= errors.descripcion.msg %>                                
 								</p>                            
 							<% } %>

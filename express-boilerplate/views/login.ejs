@@ -74,14 +74,14 @@
 					<label class="usuarioemaillogin" for="email">Email</label>
 					<input class="inputparalogin" type="email" id="email" name="email" required >
 					<% if (locals.errors && errors.email) { %>
-						<div class="">
+						<div class="error">
 							<%= errors.email.msg %>                                
 						</div>                            
 					<% } %>
 					<label class="usuarioemaillogin" for="contraseña">Contraseña:</label>
 					<input class="inputparalogin" type="password" id="contraseña" name="contraseña" required>
 					<% if (locals.errors && errors.contraseña) { %>
-						<div class="">
+						<div class="error">
 							<%= errors.contraseña.msg %>                                
 						</div>                            
 					<% } %>  
